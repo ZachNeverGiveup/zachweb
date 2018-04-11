@@ -7,8 +7,8 @@
     <result column="ad_type" property="adType" jdbcType="VARCHAR" />
     <result column="ad_type_code" property="adTypeCode" jdbcType="VARCHAR" />
     <result column="ad_title" property="adTitle" jdbcType="VARCHAR" />
-    <result column="ad_html" property="adHtml" jdbcType="VARCHAR" />
-    <result column="ad_text" property="adText" jdbcType="VARCHAR" />
+    <result column="ad_html" property="adHtml" jdbcType="LONGVARCHAR" />
+    <result column="ad_text" property="adText" jdbcType="LONGVARCHAR" />
     <result column="ad_pic" property="adPic" jdbcType="VARCHAR" />
     <result column="ad_price" property="adPrice" jdbcType="DECIMAL" />
     <result column="ad_add_time" property="adAddTime" jdbcType="TIMESTAMP" />
@@ -43,8 +43,8 @@
       ad_end_time, ad_click_number, ad_collect_number, 
       ad_comment_number, ad_last_comment_time)
     values (#{adId,jdbcType=INTEGER}, #{adUserId,jdbcType=INTEGER}, #{adType,jdbcType=VARCHAR}, 
-      #{adTypeCode,jdbcType=VARCHAR}, #{adTitle,jdbcType=VARCHAR}, #{adHtml,jdbcType=VARCHAR}, 
-      #{adText,jdbcType=VARCHAR}, #{adPic,jdbcType=VARCHAR}, #{adPrice,jdbcType=DECIMAL}, 
+      #{adTypeCode,jdbcType=VARCHAR}, #{adTitle,jdbcType=VARCHAR}, #{adHtml,jdbcType=LONGVARCHAR},
+      #{adText,jdbcType=LONGVARCHAR}, #{adPic,jdbcType=VARCHAR}, #{adPrice,jdbcType=DECIMAL},
       #{adAddTime,jdbcType=TIMESTAMP}, #{adLastUpdateTime,jdbcType=TIMESTAMP}, #{adStartTime,jdbcType=TIMESTAMP}, 
       #{adEndTime,jdbcType=TIMESTAMP}, #{adClickNumber,jdbcType=INTEGER}, #{adCollectNumber,jdbcType=INTEGER}, 
       #{adCommentNumber,jdbcType=INTEGER}, #{adLastCommentTime,jdbcType=TIMESTAMP})
@@ -121,10 +121,10 @@
         #{adTitle,jdbcType=VARCHAR},
       </if>
       <if test="adHtml != null" >
-        #{adHtml,jdbcType=VARCHAR},
+        #{adHtml,jdbcType=LONGVARCHAR},
       </if>
       <if test="adText != null" >
-        #{adText,jdbcType=VARCHAR},
+        #{adText,jdbcType=LONGVARCHAR},
       </if>
       <if test="adPic != null" >
         #{adPic,jdbcType=VARCHAR},
@@ -174,10 +174,10 @@
         ad_title = #{adTitle,jdbcType=VARCHAR},
       </if>
       <if test="adHtml != null" >
-        ad_html = #{adHtml,jdbcType=VARCHAR},
+        ad_html = #{adHtml,jdbcType=LONGVARCHAR},
       </if>
       <if test="adText != null" >
-        ad_text = #{adText,jdbcType=VARCHAR},
+        ad_text = #{adText,jdbcType=LONGVARCHAR},
       </if>
       <if test="adPic != null" >
         ad_pic = #{adPic,jdbcType=VARCHAR},
@@ -218,8 +218,8 @@
       ad_type = #{adType,jdbcType=VARCHAR},
       ad_type_code = #{adTypeCode,jdbcType=VARCHAR},
       ad_title = #{adTitle,jdbcType=VARCHAR},
-      ad_html = #{adHtml,jdbcType=VARCHAR},
-      ad_text = #{adText,jdbcType=VARCHAR},
+      ad_html = #{adHtml,jdbcType=LONGVARCHAR},
+      ad_text = #{adText,jdbcType=LONGVARCHAR},
       ad_pic = #{adPic,jdbcType=VARCHAR},
       ad_price = #{adPrice,jdbcType=DECIMAL},
       ad_add_time = #{adAddTime,jdbcType=TIMESTAMP},

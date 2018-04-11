@@ -22,6 +22,10 @@
     delete from comment
     where comment_id = #{commentId,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteByAdId" parameterType="java.lang.Integer" >
+    delete from comment
+    where comment_ad_id = #{adId,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="com.jsut.zachweb.model.Comment" >
     insert into comment (comment_id, comment_user_id, comment_ad_id, 
       comment_content, comment_time, comment_like_number
