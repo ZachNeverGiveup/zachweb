@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jsut.zachweb.dao.AdMapper" >
+  <resultMap id="BaseResultMap" type="com.jsut.zachweb.model.Ad" >
+    <id column="ad_id" property="adId" jdbcType="INTEGER" />
+    <result column="ad_user_id" property="adUserId" jdbcType="INTEGER" />
+    <result column="ad_type" property="adType" jdbcType="VARCHAR" />
+    <result column="ad_type_code" property="adTypeCode" jdbcType="VARCHAR" />
+    <result column="ad_title" property="adTitle" jdbcType="VARCHAR" />
+    <result column="ad_html" property="adHtml" jdbcType="VARCHAR" />
+    <result column="ad_text" property="adText" jdbcType="VARCHAR" />
+    <result column="ad_pic" property="adPic" jdbcType="VARCHAR" />
+    <result column="ad_price" property="adPrice" jdbcType="DECIMAL" />
+    <result column="ad_add_time" property="adAddTime" jdbcType="TIMESTAMP" />
+    <result column="ad_last_update_time" property="adLastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="ad_start_time" property="adStartTime" jdbcType="TIMESTAMP" />
+    <result column="ad_end_time" property="adEndTime" jdbcType="TIMESTAMP" />
+    <result column="ad_click_number" property="adClickNumber" jdbcType="INTEGER" />
+    <result column="ad_collect_number" property="adCollectNumber" jdbcType="INTEGER" />
+    <result column="ad_comment_number" property="adCommentNumber" jdbcType="INTEGER" />
+    <result column="ad_last_comment_time" property="adLastCommentTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, 
+    ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, 
+    ad_comment_number, ad_last_comment_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ad
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ad
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jsut.zachweb.model.Ad" >
+    insert into ad (ad_id, ad_user_id, ad_type, 
+      ad_type_code, ad_title, ad_html, 
+      ad_text, ad_pic, ad_price, 
+      ad_add_time, ad_last_update_time, ad_start_time, 
+      ad_end_time, ad_click_number, ad_collect_number, 
+      ad_comment_number, ad_last_comment_time)
+    values (#{adId,jdbcType=INTEGER}, #{adUserId,jdbcType=INTEGER}, #{adType,jdbcType=VARCHAR}, 
+      #{adTypeCode,jdbcType=VARCHAR}, #{adTitle,jdbcType=VARCHAR}, #{adHtml,jdbcType=VARCHAR}, 
+      #{adText,jdbcType=VARCHAR}, #{adPic,jdbcType=VARCHAR}, #{adPrice,jdbcType=DECIMAL}, 
+      #{adAddTime,jdbcType=TIMESTAMP}, #{adLastUpdateTime,jdbcType=TIMESTAMP}, #{adStartTime,jdbcType=TIMESTAMP}, 
+      #{adEndTime,jdbcType=TIMESTAMP}, #{adClickNumber,jdbcType=INTEGER}, #{adCollectNumber,jdbcType=INTEGER}, 
+      #{adCommentNumber,jdbcType=INTEGER}, #{adLastCommentTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jsut.zachweb.model.Ad" >
+    insert into ad
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adId != null" >
+        ad_id,
+      </if>
+      <if test="adUserId != null" >
+        ad_user_id,
+      </if>
+      <if test="adType != null" >
+        ad_type,
+      </if>
+      <if test="adTypeCode != null" >
+        ad_type_code,
+      </if>
+      <if test="adTitle != null" >
+        ad_title,
+      </if>
+      <if test="adHtml != null" >
+        ad_html,
+      </if>
+      <if test="adText != null" >
+        ad_text,
+      </if>
+      <if test="adPic != null" >
+        ad_pic,
+      </if>
+      <if test="adPrice != null" >
+        ad_price,
+      </if>
+      <if test="adAddTime != null" >
+        ad_add_time,
+      </if>
+      <if test="adLastUpdateTime != null" >
+        ad_last_update_time,
+      </if>
+      <if test="adStartTime != null" >
+        ad_start_time,
+      </if>
+      <if test="adEndTime != null" >
+        ad_end_time,
+      </if>
+      <if test="adClickNumber != null" >
+        ad_click_number,
+      </if>
+      <if test="adCollectNumber != null" >
+        ad_collect_number,
+      </if>
+      <if test="adCommentNumber != null" >
+        ad_comment_number,
+      </if>
+      <if test="adLastCommentTime != null" >
+        ad_last_comment_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adId != null" >
+        #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="adUserId != null" >
+        #{adUserId,jdbcType=INTEGER},
+      </if>
+      <if test="adType != null" >
+        #{adType,jdbcType=VARCHAR},
+      </if>
+      <if test="adTypeCode != null" >
+        #{adTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="adTitle != null" >
+        #{adTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="adHtml != null" >
+        #{adHtml,jdbcType=VARCHAR},
+      </if>
+      <if test="adText != null" >
+        #{adText,jdbcType=VARCHAR},
+      </if>
+      <if test="adPic != null" >
+        #{adPic,jdbcType=VARCHAR},
+      </if>
+      <if test="adPrice != null" >
+        #{adPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="adAddTime != null" >
+        #{adAddTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adLastUpdateTime != null" >
+        #{adLastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adStartTime != null" >
+        #{adStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adEndTime != null" >
+        #{adEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adClickNumber != null" >
+        #{adClickNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adCollectNumber != null" >
+        #{adCollectNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adCommentNumber != null" >
+        #{adCommentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adLastCommentTime != null" >
+        #{adLastCommentTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jsut.zachweb.model.Ad" >
+    update ad
+    <set >
+      <if test="adUserId != null" >
+        ad_user_id = #{adUserId,jdbcType=INTEGER},
+      </if>
+      <if test="adType != null" >
+        ad_type = #{adType,jdbcType=VARCHAR},
+      </if>
+      <if test="adTypeCode != null" >
+        ad_type_code = #{adTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="adTitle != null" >
+        ad_title = #{adTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="adHtml != null" >
+        ad_html = #{adHtml,jdbcType=VARCHAR},
+      </if>
+      <if test="adText != null" >
+        ad_text = #{adText,jdbcType=VARCHAR},
+      </if>
+      <if test="adPic != null" >
+        ad_pic = #{adPic,jdbcType=VARCHAR},
+      </if>
+      <if test="adPrice != null" >
+        ad_price = #{adPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="adAddTime != null" >
+        ad_add_time = #{adAddTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adLastUpdateTime != null" >
+        ad_last_update_time = #{adLastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adStartTime != null" >
+        ad_start_time = #{adStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adEndTime != null" >
+        ad_end_time = #{adEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adClickNumber != null" >
+        ad_click_number = #{adClickNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adCollectNumber != null" >
+        ad_collect_number = #{adCollectNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adCommentNumber != null" >
+        ad_comment_number = #{adCommentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adLastCommentTime != null" >
+        ad_last_comment_time = #{adLastCommentTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jsut.zachweb.model.Ad" >
+    update ad
+    set ad_user_id = #{adUserId,jdbcType=INTEGER},
+      ad_type = #{adType,jdbcType=VARCHAR},
+      ad_type_code = #{adTypeCode,jdbcType=VARCHAR},
+      ad_title = #{adTitle,jdbcType=VARCHAR},
+      ad_html = #{adHtml,jdbcType=VARCHAR},
+      ad_text = #{adText,jdbcType=VARCHAR},
+      ad_pic = #{adPic,jdbcType=VARCHAR},
+      ad_price = #{adPrice,jdbcType=DECIMAL},
+      ad_add_time = #{adAddTime,jdbcType=TIMESTAMP},
+      ad_last_update_time = #{adLastUpdateTime,jdbcType=TIMESTAMP},
+      ad_start_time = #{adStartTime,jdbcType=TIMESTAMP},
+      ad_end_time = #{adEndTime,jdbcType=TIMESTAMP},
+      ad_click_number = #{adClickNumber,jdbcType=INTEGER},
+      ad_collect_number = #{adCollectNumber,jdbcType=INTEGER},
+      ad_comment_number = #{adCommentNumber,jdbcType=INTEGER},
+      ad_last_comment_time = #{adLastCommentTime,jdbcType=TIMESTAMP}
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </update>
+</mapper>

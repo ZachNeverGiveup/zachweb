@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jsut.zachweb.dao.UserRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.jsut.zachweb.model.UserRelation" >
+    <id column="sys_id" property="sysId" jdbcType="VARCHAR" />
+    <result column="user_id1" property="userId1" jdbcType="INTEGER" />
+    <result column="user_id2" property="userId2" jdbcType="INTEGER" />
+    <result column="user_add_time" property="userAddTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sys_id, user_id1, user_id2, user_add_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_relation
+    where sys_id = #{sysId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user_relation
+    where sys_id = #{sysId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jsut.zachweb.model.UserRelation" >
+    insert into user_relation (sys_id, user_id1, user_id2, 
+      user_add_time)
+    values (#{sysId,jdbcType=VARCHAR}, #{userId1,jdbcType=INTEGER}, #{userId2,jdbcType=INTEGER}, 
+      #{userAddTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jsut.zachweb.model.UserRelation" >
+    insert into user_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysId != null" >
+        sys_id,
+      </if>
+      <if test="userId1 != null" >
+        user_id1,
+      </if>
+      <if test="userId2 != null" >
+        user_id2,
+      </if>
+      <if test="userAddTime != null" >
+        user_add_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysId != null" >
+        #{sysId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId1 != null" >
+        #{userId1,jdbcType=INTEGER},
+      </if>
+      <if test="userId2 != null" >
+        #{userId2,jdbcType=INTEGER},
+      </if>
+      <if test="userAddTime != null" >
+        #{userAddTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jsut.zachweb.model.UserRelation" >
+    update user_relation
+    <set >
+      <if test="userId1 != null" >
+        user_id1 = #{userId1,jdbcType=INTEGER},
+      </if>
+      <if test="userId2 != null" >
+        user_id2 = #{userId2,jdbcType=INTEGER},
+      </if>
+      <if test="userAddTime != null" >
+        user_add_time = #{userAddTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sys_id = #{sysId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jsut.zachweb.model.UserRelation" >
+    update user_relation
+    set user_id1 = #{userId1,jdbcType=INTEGER},
+      user_id2 = #{userId2,jdbcType=INTEGER},
+      user_add_time = #{userAddTime,jdbcType=TIMESTAMP}
+    where sys_id = #{sysId,jdbcType=VARCHAR}
+  </update>
+</mapper>

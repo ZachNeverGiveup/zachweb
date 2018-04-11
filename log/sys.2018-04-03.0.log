@@ -1,0 +1,354 @@
+2018-04-03 10:38:34,829 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 3172 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 10:38:34,839 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 10:38:34,839 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 10:38:37,960 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.689 seconds (JVM running for 5.104)
+2018-04-03 10:45:50,875 INFO (UserController.java:52)- -------传进来的user是：------------------User{userId=null, userName='咋咋', userPassword='123456', userType='普通用户', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='12123123', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='ereqeqweeqwe', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 10:45:51,329 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into user ( user_name, user_password, user_type, user_regist_time, user_phone, user_email, user_sex, user_city, user_signature ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-03 10:45:51,442 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 咋咋(String), e10adc3949ba59abbe56e057f20f883e(String), 普通用户(String), 2018-04-03 10:45:50.0(Timestamp), 12123123(String), zc1234567@vip.qq.com(String), 男(String), 南京(String), ereqeqweeqwe(String)
+2018-04-03 10:45:51,504 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-04-03 10:45:51,506 INFO (UserController.java:54)- -------------注册之后------------
+2018-04-03 10:57:52,049 INFO (UserController.java:52)- -------传进来的user是：------------------User{userId=null, userName='sdfsdvsf', userPassword='123', userType='普通用户', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='12312', userEmail='cccc@qq.com', userSex='女', userCity='南京', userSignature='21321', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 10:57:52,052 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into user ( user_name, user_password, user_type, user_regist_time, user_phone, user_email, user_sex, user_city, user_signature ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-03 10:57:52,053 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: sdfsdvsf(String), 202cb962ac59075b964b07152d234b70(String), 普通用户(String), 2018-04-03 10:57:52.0(Timestamp), 12312(String), cccc@qq.com(String), 女(String), 南京(String), 21321(String)
+2018-04-03 10:57:52,144 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-04-03 10:57:52,145 INFO (UserController.java:54)- -------------注册之后------------
+2018-04-03 11:01:36,139 INFO (UserController.java:52)- -------传进来的user是：------------------User{userId=null, userName='轻微的所', userPassword='123', userType='普通用户', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='123', userEmail='zc123@qq.com', userSex='男', userCity='南京', userSignature='123', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 11:01:36,141 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into user ( user_name, user_password, user_type, user_regist_time, user_phone, user_email, user_sex, user_city, user_signature ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-03 11:01:36,143 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String), 普通用户(String), 2018-04-03 11:01:36.0(Timestamp), 123(String), zc123@qq.com(String), 男(String), 南京(String), 123(String)
+2018-04-03 11:01:36,246 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-04-03 11:01:36,247 INFO (UserController.java:54)- -------------注册之后------------
+2018-04-03 11:21:53,711 INFO (UserController.java:52)- -------传进来的user是：------------------User{userId=null, userName='请问aaa请问', userPassword='123', userType='普通用户', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='123', userEmail='111@qq.com', userSex='男', userCity='南京', userSignature='123', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 11:21:53,714 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into user ( user_name, user_password, user_type, user_regist_time, user_phone, user_email, user_sex, user_city, user_signature ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-03 11:21:53,716 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 请问aaa请问(String), 202cb962ac59075b964b07152d234b70(String), 普通用户(String), 2018-04-03 11:21:53.0(Timestamp), 123(String), 111@qq.com(String), 男(String), 南京(String), 123(String)
+2018-04-03 11:21:54,068 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-04-03 11:21:54,069 INFO (UserController.java:54)- -------------注册之后------------
+2018-04-03 11:38:33,034 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 10136 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 11:38:33,042 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 11:38:33,042 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 11:38:36,375 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.725 seconds (JVM running for 4.369)
+2018-04-03 11:39:11,682 ERROR (ControllerExceptionHandler.java:23)- error info:用户名为空！~
+2018-04-03 11:40:58,848 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 7576 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 11:40:58,852 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 11:40:58,852 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 11:41:02,052 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.574 seconds (JVM running for 4.21)
+2018-04-03 11:41:15,431 INFO (UserController.java:69)- User{userId=null, userName='null', userPassword='null', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 11:41:15,437 ERROR (ControllerExceptionHandler.java:23)- error info:用户名为空！~
+2018-04-03 13:32:59,010 INFO (UserController.java:69)- User{userId=null, userName='null', userPassword='null', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 13:32:59,014 ERROR (ControllerExceptionHandler.java:23)- error info:用户名为空！~
+2018-04-03 13:35:22,974 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 10264 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 13:35:22,978 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 13:35:22,978 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 13:35:25,762 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.348 seconds (JVM running for 4.241)
+2018-04-03 13:35:51,895 INFO (UserController.java:72)- User{userId=null, userName='null', userPassword='null', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 13:35:51,902 ERROR (ControllerExceptionHandler.java:23)- error info:用户名为空！~
+2018-04-03 13:36:09,849 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 13:36:10,156 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 13:36:10,171 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 13:36:10,182 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 13:36:10,184 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 13:36:10,185 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 13:36:10,187 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 13:36:10,188 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 13:36:34,948 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='1234', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 13:36:34,950 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 13:36:34,951 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 13:36:34,954 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 13:36:34,956 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 13:36:34,957 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 81dc9bdb52d04dc20036dbd8313ed055(String)
+2018-04-03 13:36:34,959 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 13:36:34,960 INFO (UserServiceImpl.java:58)- 密码错误！
+2018-04-03 13:36:34,963 ERROR (ControllerExceptionHandler.java:23)- error info:密码错误！
+2018-04-03 13:36:40,773 INFO (UserController.java:72)- User{userId=null, userName='去2312', userPassword='1234', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 13:36:40,775 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 13:36:40,776 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 去2312(String)
+2018-04-03 13:36:40,777 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 13:36:40,779 INFO (UserServiceImpl.java:53)- 用户名不存在！
+2018-04-03 13:36:40,783 ERROR (ControllerExceptionHandler.java:23)- error info:用户名不存在！
+2018-04-03 13:37:14,234 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 13:37:14,235 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 13:37:14,238 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 13:37:14,240 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 13:37:14,242 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 13:37:14,243 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 13:37:14,244 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 13:37:14,246 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 13:59:14,017 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 13:59:14,020 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 13:59:14,022 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 13:59:14,026 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 13:59:14,029 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 13:59:14,030 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 13:59:14,033 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 13:59:14,034 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:00:32,935 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:00:32,937 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:00:32,938 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:00:32,941 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:00:32,943 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:00:32,944 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:00:32,947 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:00:32,948 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:00:46,932 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='2312331', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:00:46,934 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:00:46,935 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:00:46,938 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:00:46,941 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:00:46,943 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 08ad2cdb2ac237d561ebff0d28ae3c73(String)
+2018-04-03 14:00:46,944 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 14:00:46,945 INFO (UserServiceImpl.java:58)- 密码错误！
+2018-04-03 14:00:46,952 ERROR (ControllerExceptionHandler.java:23)- error info:密码错误！
+2018-04-03 14:02:42,762 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:02:42,764 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:02:42,765 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:02:42,767 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:02:42,769 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:02:42,770 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:02:42,771 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:02:42,771 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:03:08,205 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='1232132', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:03:08,208 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:03:08,211 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:03:08,214 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:03:08,217 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:03:08,218 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), a1b9f4136a2e1799391bf11501b5bd0c(String)
+2018-04-03 14:03:08,220 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 14:03:08,221 INFO (UserServiceImpl.java:58)- 密码错误！
+2018-04-03 14:03:08,223 ERROR (ControllerExceptionHandler.java:23)- error info:密码错误！
+2018-04-03 14:03:11,201 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:03:11,206 ERROR (ControllerExceptionHandler.java:23)- error info:用户名密码为空！~
+2018-04-03 14:03:12,387 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:03:12,389 ERROR (ControllerExceptionHandler.java:23)- error info:用户名密码为空！~
+2018-04-03 14:03:13,012 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:03:13,016 ERROR (ControllerExceptionHandler.java:23)- error info:用户名密码为空！~
+2018-04-03 14:03:13,653 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:03:13,657 ERROR (ControllerExceptionHandler.java:23)- error info:用户名密码为空！~
+2018-04-03 14:03:15,799 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='1231231', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:03:15,802 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:03:15,803 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:03:15,805 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:03:15,806 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:03:15,806 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 8d4646eb2d7067126eb08adb0672f7bb(String)
+2018-04-03 14:03:15,807 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 14:03:15,807 INFO (UserServiceImpl.java:58)- 密码错误！
+2018-04-03 14:03:15,813 ERROR (ControllerExceptionHandler.java:23)- error info:密码错误！
+2018-04-03 14:09:53,570 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='234', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:09:53,572 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:09:53,573 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:09:53,574 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:09:53,576 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:09:53,577 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 289dff07669d7a23de0ef88d2f7129e7(String)
+2018-04-03 14:09:53,579 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 14:09:53,579 INFO (UserServiceImpl.java:58)- 密码错误！
+2018-04-03 14:09:53,581 ERROR (ControllerExceptionHandler.java:23)- error info:密码错误！
+2018-04-03 14:09:59,370 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='321', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:09:59,372 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:09:59,372 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:09:59,376 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:09:59,377 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:09:59,377 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), caf1a3dfb505ffed0d024130f58c5cfa(String)
+2018-04-03 14:09:59,378 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 14:09:59,380 INFO (UserServiceImpl.java:58)- 密码错误！
+2018-04-03 14:09:59,385 ERROR (ControllerExceptionHandler.java:23)- error info:密码错误！
+2018-04-03 14:10:02,628 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:10:02,630 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:10:02,631 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:10:02,633 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:10:02,634 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:10:02,635 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:10:02,636 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:10:02,636 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:11:05,344 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:11:05,346 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:11:05,347 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:11:05,349 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:11:05,351 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:11:05,352 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:11:05,353 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:11:05,354 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:11:31,736 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:11:31,738 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:11:31,738 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:11:31,740 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:11:31,741 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:11:31,741 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:11:31,743 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:11:31,743 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:11:53,419 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:11:53,421 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:11:53,422 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:11:53,423 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:11:53,424 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:11:53,424 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:11:53,425 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:11:53,426 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:12:26,541 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:12:26,545 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:12:26,545 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:12:26,546 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:12:26,547 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:12:26,548 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:12:26,550 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:12:26,551 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:13:23,011 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:13:23,012 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:13:23,013 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:13:23,015 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:13:23,016 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:13:23,018 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:13:23,020 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:13:23,021 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:13:39,156 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:13:39,158 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:13:39,159 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:13:39,161 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:13:39,162 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:13:39,163 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:13:39,165 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:13:39,165 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:15:09,746 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:15:09,748 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:15:09,748 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:15:09,749 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:15:09,751 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:15:09,751 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:15:09,753 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:15:09,753 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:16:43,082 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:16:43,084 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:16:43,084 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:16:43,086 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:16:43,086 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:16:43,088 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:16:43,088 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:16:43,088 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:22:02,223 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:22:02,226 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:22:02,227 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:22:02,229 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:22:02,231 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:22:02,231 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 14:22:02,233 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:22:02,234 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 14:22:13,051 INFO (UserController.java:72)- User{userId=null, userName='轻微的所', userPassword='12312312', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 14:22:13,053 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 14:22:13,054 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 14:22:13,056 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 14:22:13,058 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 14:22:13,059 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 220466675e31b9d20c051d5e57974150(String)
+2018-04-03 14:22:13,060 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-04-03 14:22:13,061 INFO (UserServiceImpl.java:58)- 密码错误！
+2018-04-03 14:22:13,066 ERROR (ControllerExceptionHandler.java:23)- error info:密码错误！
+2018-04-03 17:54:25,071 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 5724 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 17:54:25,075 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 17:54:25,075 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 17:54:28,137 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.411 seconds (JVM running for 4.24)
+2018-04-03 18:08:20,356 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 1276 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 18:08:20,359 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 18:08:20,360 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 18:08:23,840 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.947 seconds (JVM running for 4.734)
+2018-04-03 18:08:39,433 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:08:39,635 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:08:39,649 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:08:39,761 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:08:39,763 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:08:39,764 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:08:39,765 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:08:39,766 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:09:25,044 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:09:25,046 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:09:25,047 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:09:25,048 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:09:25,050 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:09:25,050 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:09:25,052 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:09:25,052 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:11:53,380 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:11:53,383 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:11:53,384 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:11:53,385 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:11:53,386 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:11:53,387 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:11:53,388 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:11:53,389 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:13:20,728 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 5188 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 18:13:20,732 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 18:13:20,732 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 18:13:23,929 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.513 seconds (JVM running for 4.153)
+2018-04-03 18:13:34,007 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:13:34,208 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:13:34,222 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:13:34,333 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:13:34,335 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:13:34,336 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:13:34,338 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:13:34,338 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:13:59,531 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:13:59,536 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:13:59,537 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:13:59,539 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:13:59,541 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:13:59,543 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:13:59,546 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:13:59,547 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:14:52,830 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 10636 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 18:14:52,834 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 18:14:52,835 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 18:14:55,786 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.305 seconds (JVM running for 4.03)
+2018-04-03 18:15:06,496 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:15:06,687 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:15:06,703 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:15:06,812 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:15:06,814 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:15:06,815 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:15:06,816 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:15:06,817 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:15:07,355 INFO (UserController.java:91)- 进入findUser
+2018-04-03 18:15:56,755 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 2504 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 18:15:56,758 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 18:15:56,759 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 18:15:59,555 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.141 seconds (JVM running for 3.751)
+2018-04-03 18:16:13,142 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:16:13,341 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:16:13,357 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:16:13,479 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:16:13,482 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:16:13,482 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:16:13,485 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:16:13,486 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:16:14,023 INFO (UserController.java:91)- 进入findUser
+2018-04-03 18:17:20,106 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:17:20,108 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:17:20,109 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:17:20,111 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:17:20,114 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:17:20,117 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:17:20,120 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:17:20,121 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:17:20,599 INFO (UserController.java:91)- 进入findUser
+2018-04-03 18:18:32,796 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 832 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 18:18:32,801 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 18:18:32,801 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 18:18:35,925 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.473 seconds (JVM running for 4.1)
+2018-04-03 18:18:51,547 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:18:51,738 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:18:51,852 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:18:51,861 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:18:51,863 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:18:51,864 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:18:51,866 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:18:51,867 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:18:52,415 INFO (UserController.java:91)- 进入findUser
+2018-04-03 18:21:49,546 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 10628 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-03 18:21:49,550 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-03 18:21:49,550 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-03 18:21:53,089 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.958 seconds (JVM running for 4.648)
+2018-04-03 18:22:08,914 INFO (UserController.java:70)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-04-03 18:22:09,106 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-04-03 18:22:09,120 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-04-03 18:22:09,227 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:22:09,229 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-04-03 18:22:09,230 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-04-03 18:22:09,231 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-04-03 18:22:09,232 INFO (UserServiceImpl.java:61)- 验证成功！
+2018-04-03 18:22:09,739 INFO (UserController.java:91)- 进入findUser
+2018-04-03 18:22:09,740 INFO (UserController.java:105)- user is null

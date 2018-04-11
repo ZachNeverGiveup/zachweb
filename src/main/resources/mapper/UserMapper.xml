@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jsut.zachweb.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.jsut.zachweb.model.User" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="VARCHAR" />
+    <result column="user_type_code" property="userTypeCode" jdbcType="VARCHAR" />
+    <result column="user_verify_status" property="userVerifyStatus" jdbcType="VARCHAR" />
+    <result column="user_regist_time" property="userRegistTime" jdbcType="TIMESTAMP" />
+    <result column="user_avatar" property="userAvatar" jdbcType="VARCHAR" />
+    <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+    <result column="user_city" property="userCity" jdbcType="VARCHAR" />
+    <result column="user_signature" property="userSignature" jdbcType="VARCHAR" />
+    <result column="user_qq" property="userQq" jdbcType="INTEGER" />
+    <result column="user_wechat" property="userWechat" jdbcType="VARCHAR" />
+    <result column="user_weibo" property="userWeibo" jdbcType="VARCHAR" />
+    <result column="user_money" property="userMoney" jdbcType="INTEGER" />
+    <result column="user_vip_grade" property="userVipGrade" jdbcType="VARCHAR" />
+    <result column="user_grade" property="userGrade" jdbcType="INTEGER" />
+    <result column="user_preference" property="userPreference" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, user_name, user_password, user_type, user_type_code, user_verify_status, 
+    user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, 
+    user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_name = #{userName,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByUserNameAndPwd" resultMap="BaseResultMap" parameterType="com.jsut.zachweb.model.User" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_name = #{userName,jdbcType=VARCHAR} AND user_password = #{userPassword,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jsut.zachweb.model.User" >
+    insert into user (user_id, user_name, user_password, 
+      user_type, user_type_code, user_verify_status, 
+      user_regist_time, user_avatar, user_phone, 
+      user_email, user_sex, user_city, 
+      user_signature, user_qq, user_wechat, 
+      user_weibo, user_money, user_vip_grade, 
+      user_grade, user_preference)
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
+      #{userType,jdbcType=VARCHAR}, #{userTypeCode,jdbcType=VARCHAR}, #{userVerifyStatus,jdbcType=VARCHAR}, 
+      #{userRegistTime,jdbcType=TIMESTAMP}, #{userAvatar,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{userCity,jdbcType=VARCHAR}, 
+      #{userSignature,jdbcType=VARCHAR}, #{userQq,jdbcType=INTEGER}, #{userWechat,jdbcType=VARCHAR}, 
+      #{userWeibo,jdbcType=VARCHAR}, #{userMoney,jdbcType=INTEGER}, #{userVipGrade,jdbcType=VARCHAR}, 
+      #{userGrade,jdbcType=INTEGER}, #{userPreference,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jsut.zachweb.model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userPassword != null" >
+        user_password,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="userTypeCode != null" >
+        user_type_code,
+      </if>
+      <if test="userVerifyStatus != null" >
+        user_verify_status,
+      </if>
+      <if test="userRegistTime != null" >
+        user_regist_time,
+      </if>
+      <if test="userAvatar != null" >
+        user_avatar,
+      </if>
+      <if test="userPhone != null" >
+        user_phone,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="userCity != null" >
+        user_city,
+      </if>
+      <if test="userSignature != null" >
+        user_signature,
+      </if>
+      <if test="userQq != null" >
+        user_qq,
+      </if>
+      <if test="userWechat != null" >
+        user_wechat,
+      </if>
+      <if test="userWeibo != null" >
+        user_weibo,
+      </if>
+      <if test="userMoney != null" >
+        user_money,
+      </if>
+      <if test="userVipGrade != null" >
+        user_vip_grade,
+      </if>
+      <if test="userGrade != null" >
+        user_grade,
+      </if>
+      <if test="userPreference != null" >
+        user_preference,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeCode != null" >
+        #{userTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userVerifyStatus != null" >
+        #{userVerifyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegistTime != null" >
+        #{userRegistTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userAvatar != null" >
+        #{userAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null" >
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userCity != null" >
+        #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userSignature != null" >
+        #{userSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        #{userQq,jdbcType=INTEGER},
+      </if>
+      <if test="userWechat != null" >
+        #{userWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="userWeibo != null" >
+        #{userWeibo,jdbcType=VARCHAR},
+      </if>
+      <if test="userMoney != null" >
+        #{userMoney,jdbcType=INTEGER},
+      </if>
+      <if test="userVipGrade != null" >
+        #{userVipGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrade != null" >
+        #{userGrade,jdbcType=INTEGER},
+      </if>
+      <if test="userPreference != null" >
+        #{userPreference,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jsut.zachweb.model.User" >
+    update user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeCode != null" >
+        user_type_code = #{userTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userVerifyStatus != null" >
+        user_verify_status = #{userVerifyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegistTime != null" >
+        user_regist_time = #{userRegistTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userAvatar != null" >
+        user_avatar = #{userAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null" >
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userCity != null" >
+        user_city = #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userSignature != null" >
+        user_signature = #{userSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        user_qq = #{userQq,jdbcType=INTEGER},
+      </if>
+      <if test="userWechat != null" >
+        user_wechat = #{userWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="userWeibo != null" >
+        user_weibo = #{userWeibo,jdbcType=VARCHAR},
+      </if>
+      <if test="userMoney != null" >
+        user_money = #{userMoney,jdbcType=INTEGER},
+      </if>
+      <if test="userVipGrade != null" >
+        user_vip_grade = #{userVipGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrade != null" >
+        user_grade = #{userGrade,jdbcType=INTEGER},
+      </if>
+      <if test="userPreference != null" >
+        user_preference = #{userPreference,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jsut.zachweb.model.User" >
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
+      user_type_code = #{userTypeCode,jdbcType=VARCHAR},
+      user_verify_status = #{userVerifyStatus,jdbcType=VARCHAR},
+      user_regist_time = #{userRegistTime,jdbcType=TIMESTAMP},
+      user_avatar = #{userAvatar,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_city = #{userCity,jdbcType=VARCHAR},
+      user_signature = #{userSignature,jdbcType=VARCHAR},
+      user_qq = #{userQq,jdbcType=INTEGER},
+      user_wechat = #{userWechat,jdbcType=VARCHAR},
+      user_weibo = #{userWeibo,jdbcType=VARCHAR},
+      user_money = #{userMoney,jdbcType=INTEGER},
+      user_vip_grade = #{userVipGrade,jdbcType=VARCHAR},
+      user_grade = #{userGrade,jdbcType=INTEGER},
+      user_preference = #{userPreference,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
