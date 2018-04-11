@@ -4,6 +4,7 @@ import com.jsut.zachweb.dao.UserMapper;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.UserService;
 import com.jsut.zachweb.util.MD5;
+import com.jsut.zachweb.util.MailService;
 import com.jsut.zachweb.util.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private MailService mailService;
     /**
      * 注册用户
      * @param user
@@ -37,6 +40,8 @@ public class UserServiceImpl implements UserService {
         String formatDate = dFormat.format(new Date());
         user.setUserRegistTime(dFormat.parse(formatDate));
         userMapper.insertSelective(user);
+        //发送邮件提醒
+        sendRegistMail(user.getUserEmail());
     }
 
     /**
@@ -79,5 +84,11 @@ public class UserServiceImpl implements UserService {
         if(StringUtils.isEmpty(user.getUserPassword())||user.getUserPassword()==null){
             throw new ServiceException("用户名密码为空！~");
         }
+    }
+
+    public void sendRegistMail(String to){
+        String subject = "ZachWeb 广告信息网注册邮件提醒";
+        String content = "欢迎注册新账号";
+        mailService.sendSimpleMail(to,subject,content);
     }
 }

@@ -62,17 +62,9 @@ public class UserController {
      */
     @RequestMapping(value="/login",method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResult Login(String userName,String userPassword,HttpServletRequest request,HttpSession session,HttpServletResponse response){
+    public JsonResult Login(String userName,String userPassword,HttpServletRequest request,HttpServletResponse response){
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        /*response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
-        response.setHeader("Access-Control-Allow-Credentials", "true");
-        response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
-        response.setHeader("Access-Control-Max-Age", "5000");
-        response.setHeader("Access-Control-Allow-Headers",
-                "Origin, No-Cache, X-Requested-With, If-Modified-Since, " +
-                        "Pragma, Last-Modified, Cache-Control, Expires, " +
-                        "Content-Type, X-E4M-With,Authorization,Token");*/
         User user = new User();
         user.setUserName(userName);
         user.setUserPassword(userPassword);
@@ -102,18 +94,9 @@ public class UserController {
         log.info("request>>>"+request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
-       /* response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
-        response.setHeader("Access-Control-Allow-Credentials", "true");
-        response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
-        response.setHeader("Access-Control-Max-Age", "5000");
-        response.setHeader("Access-Control-Allow-Headers",
-                "Origin, No-Cache, X-Requested-With, " +
-                "If-Modified-Since, Pragma, Last-Modified, " +
-                        "Cache-Control, Expires, Content-Type, " +
-                        "X-E4M-With,Authorization,Token");*/
-        HttpSession session =request.getSession();
-        User user = (User)session.getAttribute("user");
-        if(null!=user){
+        Object object = request.getSession().getAttribute("user");
+        if(null!=object&&object instanceof User){
+            User user = (User)object;
             log.info(user.toString());
             return new JsonResult(user);
         }else {

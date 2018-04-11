@@ -52,6 +52,14 @@ public class AdServiceImpl implements AdService{
         }else{
             throw new ServiceException("未找到这条信息！");
         }
+    }
 
+    @Override
+    public void collectAdById(Integer userId, Integer adId) {
+        Ad adSelectByPrimaryKey = adMapper.selectByPrimaryKey(adId);
+        if (null==adSelectByPrimaryKey){
+            throw new ServiceException("没找到这条信息！");
+        }
+        adMapper.collectAdById(userId,adId);
     }
 }
