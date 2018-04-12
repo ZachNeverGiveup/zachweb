@@ -3,10 +3,12 @@ package com.jsut.zachweb.controller;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.UserService;
 import com.jsut.zachweb.util.JsonResult;
+import com.jsut.zachweb.util.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -102,6 +104,52 @@ public class UserController {
         }else {
             log.info("未找到User");
             return new JsonResult("未找到User");
+        }
+    }
+
+    /**
+     * 发送验证码
+     * @param email
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/sendCode")
+    @ResponseBody
+    public JsonResult sendCode(String email,HttpServletRequest request,HttpServletResponse response){
+        log.info("sendCode");
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        String code = userService.sendCode(email);
+        if (!StringUtils.isEmpty(code)){
+            request.getSession().setAttribute("code",code);
+        }
+        return new JsonResult();
+    }
+
+    /**
+     *
+     * @param code
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/verifyCode")
+    @ResponseBody
+    public JsonResult verifyCode(String code,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>>>验证验证码是否正确:code,{}",code);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        String codeSession = request.getSession().getAttribute("code").toString();
+        if (StringUtils.isEmpty(codeSession)){
+            return new JsonResult("session里面没有code！");
+        }else{
+            if (codeSession.equalsIgnoreCase(code)){
+                log.info(">>>>>>验证成功！！！");
+                return new JsonResult();
+            }else{
+                throw new ServiceException("验证码错误");
+            }
         }
     }
 }

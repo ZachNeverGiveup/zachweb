@@ -9,4 +9,6 @@ public interface UserService {
     void regist(User user) throws ParseException;
 
     User login(User user);
+
+    String sendCode(String email);
 }
