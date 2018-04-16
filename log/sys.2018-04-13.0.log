@@ -1,0 +1,4 @@
+2018-04-13 14:09:13,907 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 12056 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-04-13 14:09:13,922 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-04-13 14:09:13,922 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-04-13 14:09:18,547 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 5.078 seconds (JVM running for 10.882)

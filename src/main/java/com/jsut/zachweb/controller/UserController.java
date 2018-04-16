@@ -3,6 +3,7 @@ package com.jsut.zachweb.controller;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.UserService;
 import com.jsut.zachweb.util.JsonResult;
+import com.jsut.zachweb.util.MD5;
 import com.jsut.zachweb.util.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -151,5 +152,47 @@ public class UserController {
                 throw new ServiceException("验证码错误");
             }
         }
+    }
+
+    /**
+     * 修改密码
+     * @param userPassword
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/resetPassword")
+    @ResponseBody
+    public JsonResult resetPassword(String userEmail,String userPassword,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>>>重置新密码:userPassword:{},userEmail:{}",userPassword,userEmail);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = userService.resetPassword(userEmail, userPassword);
+        return new JsonResult(user);
+    }
+
+    /**
+     * 修改个人信息
+     * @param userName
+     * @param userEmail
+     * @param userCity
+     * @param userSignature
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/updateUserInfo")
+    @ResponseBody
+    public JsonResult updateUserInfo(String userName,String userEmail,String userCity,String userSignature,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>>>修改个人信息:userName:{},userEmail:{}",userName,userEmail);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User) request.getSession().getAttribute("user");
+        user.setUserName(userName);
+        user.setUserEmail(userEmail);
+        user.setUserCity(userCity);
+        user.setUserSignature(userSignature);
+        userService.updateUser(user);
+        return new JsonResult(user);
     }
 }

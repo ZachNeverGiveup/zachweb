@@ -41,6 +41,11 @@ public class UserServiceImpl implements UserService {
             log.info("用户名已存在！");
             throw new ServiceException("该昵称已被注册，换个试试吧！~");
         }
+        User userSelectByUserEmail = userMapper.selectByEmail(user.getUserEmail());
+        if (null!=userSelectByUserEmail){
+            log.info("邮箱已存在！");
+            throw new ServiceException("该邮箱已被注册，换个试试吧！~");
+        }
         user.setUserPassword(MD5.getInstance().getMD5(user.getUserPassword()));
         user.setUserRegistTime(DateUtil.getNowDate());
         user.setUserVipGrade("1");
@@ -92,6 +97,24 @@ public class UserServiceImpl implements UserService {
             mailService.sendSimpleMail(email,subject,content);
             return code;
         }
+    }
+
+    @Override
+    public User resetPassword(String userEmail,String userPassword) {
+        User userSelectByEmail = userMapper.selectByEmail(userEmail);
+        if (null!=userSelectByEmail){
+            userSelectByEmail.setUserPassword(MD5.getInstance().getMD5(userPassword));
+            userMapper.updateByPrimaryKeySelective(userSelectByEmail);
+        }
+        String subject = "ZachWeb 广告信息网修改密码提醒";
+        String content = "你刚刚修改了密码，如不是本人操作，请联系管理员";
+        mailService.sendSimpleMail(userEmail,subject,content);
+        return userSelectByEmail;
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateByPrimaryKeySelective(user);
     }
 
 

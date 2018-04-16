@@ -46,6 +46,12 @@
     from user
     where user_name = #{userName,jdbcType=VARCHAR} AND user_password = #{userPassword,jdbcType=VARCHAR}
   </select>
+  <select id="selectByEmail" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_email = #{userEmail,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
