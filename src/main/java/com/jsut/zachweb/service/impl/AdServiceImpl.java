@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AdServiceImpl implements AdService{
 
@@ -26,6 +28,9 @@ public class AdServiceImpl implements AdService{
     public void newAd(Ad ad) {
         ad.setAdAddTime(DateUtil.getNowDate());
         ad.setAdLastUpdateTime(DateUtil.getNowDate());
+        ad.setAdClickNumber(0);
+        ad.setAdCollectNumber(0);
+        ad.setAdCommentNumber(0);
         adMapper.insert(ad);
     }
 
@@ -61,5 +66,10 @@ public class AdServiceImpl implements AdService{
             throw new ServiceException("没找到这条信息！");
         }
         adMapper.collectAdById(userId,adId);
+    }
+
+    @Override
+    public List<Ad> selectAdByUserId(Integer userId) {
+        return adMapper.selectByUserId(userId);
     }
 }

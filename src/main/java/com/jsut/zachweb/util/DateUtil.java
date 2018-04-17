@@ -13,7 +13,14 @@ public final class DateUtil {
             throw new ServiceException("日期出现异常！");
         }
     }
-   /* public static final Date DateFormat(String date){
+    public static final Date DateFormat(String date){
+        //String[] split = date.split("-");
+        try {
+            SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
+            return dFormat.parse(date);
+        }catch(Exception e){
+            throw new ServiceException("日期出现异常！");
+        }
 
-    }*/
+    }
 }

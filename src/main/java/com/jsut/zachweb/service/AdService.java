@@ -2,6 +2,8 @@ package com.jsut.zachweb.service;
 
 import com.jsut.zachweb.model.Ad;
 
+import java.util.List;
+
 public interface AdService {
     /**
      * 发表信息
@@ -34,4 +36,5 @@ public interface AdService {
      */
     void collectAdById(Integer userId,Integer adId);
 
+    List<Ad> selectAdByUserId(Integer userId);
 }

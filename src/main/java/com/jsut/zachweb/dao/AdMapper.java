@@ -3,6 +3,8 @@ package com.jsut.zachweb.dao;
 import com.jsut.zachweb.model.Ad;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AdMapper {
     int deleteByPrimaryKey(Integer adId);
@@ -18,4 +20,6 @@ public interface AdMapper {
     int updateByPrimaryKey(Ad record);
 
     void collectAdById(Integer userId, Integer adId);
+
+    List<Ad> selectByUserId(Integer userId);
 }
