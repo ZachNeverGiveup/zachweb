@@ -38,6 +38,16 @@ public class Ad {
 
     private Date adLastCommentTime;
 
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Integer getAdId() {
         return adId;
     }

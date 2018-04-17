@@ -127,7 +127,9 @@ public class AdController {
      */
     @RequestMapping(value = "/selectAdDetail",method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResult selectAd(Integer id){
+    public JsonResult selectAd(Integer id,HttpServletResponse response,HttpServletRequest request){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
         Ad ad = adService.selectByPrimaryKey(id);
         return new JsonResult(ad);
     }

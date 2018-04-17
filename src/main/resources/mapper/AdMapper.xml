@@ -19,6 +19,28 @@
     <result column="ad_collect_number" property="adCollectNumber" jdbcType="INTEGER" />
     <result column="ad_comment_number" property="adCommentNumber" jdbcType="INTEGER" />
     <result column="ad_last_comment_time" property="adLastCommentTime" jdbcType="TIMESTAMP" />
+    <association property="user" column="user_id" javaType="com.jsut.zachweb.model.User">
+      <id column="user_id" property="userId" jdbcType="INTEGER" />
+      <result column="user_name" property="userName" jdbcType="VARCHAR" />
+      <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+      <result column="user_type" property="userType" jdbcType="VARCHAR" />
+      <result column="user_type_code" property="userTypeCode" jdbcType="VARCHAR" />
+      <result column="user_verify_status" property="userVerifyStatus" jdbcType="VARCHAR" />
+      <result column="user_regist_time" property="userRegistTime" jdbcType="TIMESTAMP" />
+      <result column="user_avatar" property="userAvatar" jdbcType="VARCHAR" />
+      <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+      <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+      <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+      <result column="user_city" property="userCity" jdbcType="VARCHAR" />
+      <result column="user_signature" property="userSignature" jdbcType="VARCHAR" />
+      <result column="user_qq" property="userQq" jdbcType="INTEGER" />
+      <result column="user_wechat" property="userWechat" jdbcType="VARCHAR" />
+      <result column="user_weibo" property="userWeibo" jdbcType="VARCHAR" />
+      <result column="user_money" property="userMoney" jdbcType="INTEGER" />
+      <result column="user_vip_grade" property="userVipGrade" jdbcType="VARCHAR" />
+      <result column="user_grade" property="userGrade" jdbcType="INTEGER" />
+      <result column="user_preference" property="userPreference" jdbcType="VARCHAR" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, 
@@ -27,8 +49,14 @@
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    <include refid="Base_Column_List" />
-    from ad
+    a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price,
+    a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number,
+    a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status,
+    u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature,
+    u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference
+    from ad a
+    JOIN user u
+    ON a.ad_user_id = u.user_id
     where ad_id = #{adId,jdbcType=INTEGER}
   </select>
   <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -41,7 +69,7 @@
     delete from ad
     where ad_id = #{adId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.jsut.zachweb.model.Ad" >
+  <insert id="insert" parameterType="com.jsut.zachweb.model.Ad">
     insert into ad (ad_id, ad_user_id, ad_type, 
       ad_type_code, ad_title, ad_html, 
       ad_text, ad_pic, ad_price, 
