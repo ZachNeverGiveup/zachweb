@@ -11,14 +11,24 @@
     sys_id, user_id, ad_id, collect_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from user_ad
     where sys_id = #{sysId,jdbcType=VARCHAR}
   </select>
+  <select id="selectByAdIdAndUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from user_ad
+    where ad_id = #{adId,jdbcType=INTEGER} AND user_id = #{userId,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user_ad
     where sys_id = #{sysId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByAdIdAndUserId" parameterType="java.lang.Integer" >
+    delete from user_ad
+    where ad_id = #{adId,jdbcType=INTEGER} AND user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.jsut.zachweb.model.UserAd" >
     insert into user_ad (sys_id, user_id, ad_id, 

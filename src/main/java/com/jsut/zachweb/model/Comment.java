@@ -15,6 +15,8 @@ public class Comment {
 
     private Integer commentLikeNumber;
 
+    private User user;
+
     public Integer getCommentId() {
         return commentId;
     }
@@ -61,5 +63,13 @@ public class Comment {
 
     public void setCommentLikeNumber(Integer commentLikeNumber) {
         this.commentLikeNumber = commentLikeNumber;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

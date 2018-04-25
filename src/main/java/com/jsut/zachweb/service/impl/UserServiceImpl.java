@@ -1,5 +1,6 @@
 package com.jsut.zachweb.service.impl;
 
+import com.jsut.zachweb.constants.ZachWebConstants;
 import com.jsut.zachweb.dao.UserMapper;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.UserService;
@@ -117,6 +118,25 @@ public class UserServiceImpl implements UserService {
         userMapper.updateByPrimaryKeySelective(user);
     }
 
+    @Override
+    public User findUser(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void payForAd(Integer money,Integer userId) {
+        log.info("money>>>{}",money);
+        log.info("userId>>>{}",userId);
+        User user = userMapper.selectByPrimaryKey(userId);
+        if (null==user){
+            throw new ServiceException("user对象为空！~");
+        }
+        Integer leftMoney = user.getUserMoney()-money;
+        log.info("用户{}消费了{}，余额是{}",user.getUserName(),money,leftMoney);
+        user.setUserMoney(leftMoney);
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
 
     /**
      * 用户参数验证
@@ -152,28 +172,28 @@ public class UserServiceImpl implements UserService {
             log.info("用户类型为空！");
             throw new ServiceException("用户类型不允许为空！");
         }else{
-            if (userType.equalsIgnoreCase("普通用户")){
+            if (userType.equalsIgnoreCase(ZachWebConstants.USER)){
                 userTypeCode="USER";
                 return userTypeCode;
-            }else if (userType.equalsIgnoreCase("政府")){
+            }else if (userType.equalsIgnoreCase(ZachWebConstants.GOV)){
                 userTypeCode="GOV";
                 return userTypeCode;
-            }else if (userType.equalsIgnoreCase("组织")){
+            }else if (userType.equalsIgnoreCase(ZachWebConstants.ORG)){
                 userTypeCode="ORG";
                 return userTypeCode;
-            }else if (userType.equalsIgnoreCase("个体户")){
+            }else if (userType.equalsIgnoreCase(ZachWebConstants.SPB)){
                 userTypeCode="SPB";
                 return userTypeCode;
-            }else if (userType.equalsIgnoreCase("合伙企业")){
+            }else if (userType.equalsIgnoreCase(ZachWebConstants.COR)){
                 userTypeCode="COR";
                 return userTypeCode;
-            }else if (userType.equalsIgnoreCase("有限责任公司")){
+            }else if (userType.equalsIgnoreCase(ZachWebConstants.COLTD)){
                 userTypeCode="COLTD";
                 return userTypeCode;
-            }else if (userType.equalsIgnoreCase("股份有限公司")){
+            }else if (userType.equalsIgnoreCase(ZachWebConstants.LTD)){
                 userTypeCode="LTD";
                 return userTypeCode;
-            }else if (userType.equalsIgnoreCase("外资公司")){
+            }else if (userType.equalsIgnoreCase(ZachWebConstants.FORCO)){
                 userTypeCode="FORCO";
                 return userTypeCode;
             }else{

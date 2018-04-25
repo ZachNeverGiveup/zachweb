@@ -3,6 +3,8 @@ package com.jsut.zachweb.dao;
 import com.jsut.zachweb.model.Comment;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CommentMapper {
     int deleteByPrimaryKey(Integer commentId);
@@ -18,4 +20,6 @@ public interface CommentMapper {
     int updateByPrimaryKeySelective(Comment record);
 
     int updateByPrimaryKey(Comment record);
+
+    List<Comment> selectByAdId(Integer adId);
 }

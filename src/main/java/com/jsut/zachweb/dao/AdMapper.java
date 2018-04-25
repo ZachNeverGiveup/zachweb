@@ -19,7 +19,6 @@ public interface AdMapper {
 
     int updateByPrimaryKey(Ad record);
 
-    void collectAdById(Integer userId, Integer adId);
 
     List<Ad> selectByUserId(Integer userId);
 }

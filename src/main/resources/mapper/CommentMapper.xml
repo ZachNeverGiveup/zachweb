@@ -8,6 +8,28 @@
     <result column="comment_content" property="commentContent" jdbcType="VARCHAR" />
     <result column="comment_time" property="commentTime" jdbcType="TIMESTAMP" />
     <result column="comment_like_number" property="commentLikeNumber" jdbcType="INTEGER" />
+    <association property="user" column="user_id" javaType="com.jsut.zachweb.model.User">
+      <id column="user_id" property="userId" jdbcType="INTEGER" />
+      <result column="user_name" property="userName" jdbcType="VARCHAR" />
+      <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+      <result column="user_type" property="userType" jdbcType="VARCHAR" />
+      <result column="user_type_code" property="userTypeCode" jdbcType="VARCHAR" />
+      <result column="user_verify_status" property="userVerifyStatus" jdbcType="VARCHAR" />
+      <result column="user_regist_time" property="userRegistTime" jdbcType="TIMESTAMP" />
+      <result column="user_avatar" property="userAvatar" jdbcType="VARCHAR" />
+      <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+      <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+      <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+      <result column="user_city" property="userCity" jdbcType="VARCHAR" />
+      <result column="user_signature" property="userSignature" jdbcType="VARCHAR" />
+      <result column="user_qq" property="userQq" jdbcType="INTEGER" />
+      <result column="user_wechat" property="userWechat" jdbcType="VARCHAR" />
+      <result column="user_weibo" property="userWeibo" jdbcType="VARCHAR" />
+      <result column="user_money" property="userMoney" jdbcType="INTEGER" />
+      <result column="user_vip_grade" property="userVipGrade" jdbcType="VARCHAR" />
+      <result column="user_grade" property="userGrade" jdbcType="INTEGER" />
+      <result column="user_preference" property="userPreference" jdbcType="VARCHAR" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     comment_id, comment_user_id, comment_ad_id, comment_content, comment_time, comment_like_number
@@ -17,6 +39,17 @@
     <include refid="Base_Column_List" />
     from comment
     where comment_id = #{commentId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByAdId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    c.comment_id, c.comment_user_id, c.comment_ad_id, c.comment_content, c.comment_time, c.comment_like_number,
+    u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status,
+    u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature,
+    u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference
+    from comment c
+    JOIN user u
+    ON c.comment_user_id = u.user_id
+    where comment_ad_id = #{adId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from comment

@@ -99,12 +99,34 @@ public class UserController {
         response.setHeader("Access-Control-Allow-Credentials", "true");
         Object object = request.getSession().getAttribute("user");
         if(null!=object&&object instanceof User){
-            User user = (User)object;
+            User user =userService.findUser(((User) object).getUserId());
             log.info(user.toString());
             return new JsonResult(user);
         }else {
             log.info("未找到User");
-            return new JsonResult("未找到User");
+            return new JsonResult("user404");
+        }
+    }
+
+    /**
+     * 登出
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/logout")
+    @ResponseBody
+    public JsonResult logOut(HttpServletRequest request,HttpServletResponse response){
+        log.info("logout>>>");
+        log.info("request>>>"+request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        try {
+            request.getSession().removeAttribute("user");
+            return new JsonResult();
+        }catch(Exception e){
+            log.info("删除session失败");
+            throw new ServiceException("删除session失败");
         }
     }
 

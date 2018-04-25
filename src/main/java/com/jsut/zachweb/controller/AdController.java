@@ -3,12 +3,15 @@ package com.jsut.zachweb.controller;
 import com.jsut.zachweb.model.Ad;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.AdService;
+import com.jsut.zachweb.service.UserService;
 import com.jsut.zachweb.util.DateUtil;
 import com.jsut.zachweb.util.JsonResult;
+import com.jsut.zachweb.util.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +32,9 @@ public class AdController {
     @Autowired
     private AdService adService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * 新增广告信息
      * @param type
@@ -44,7 +50,7 @@ public class AdController {
     public JsonResult newAd(String type,String title,
                             String html,String text,
                            /* String picURL, String price,*/
-                            String startTime, String endTime,
+                            String startTime, String endTime,String money,
             HttpServletRequest request, HttpServletResponse response){
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -68,6 +74,8 @@ public class AdController {
         ad.setAdStartTime(DateUtil.DateFormat(startTime));
         ad.setAdEndTime(DateUtil.DateFormat(endTime));
         adService.newAd(ad);
+
+        userService.payForAd(Integer.parseInt(StringUtils.trimAllWhitespace(money)),user.getUserId());
         return new JsonResult();
     }
 
@@ -150,10 +158,87 @@ public class AdController {
         if(null!=object&&object instanceof User){
             User user = (User)object;
             List<Ad> ads = adService.selectAdByUserId(user.getUserId());
-            return new JsonResult(ads);
+            if (!CollectionUtils.isEmpty(ads)){
+                return new JsonResult(ads);
+            }else{
+                log.info("该用户未发表广告");
+                JsonResult jsonResult = new JsonResult();
+                jsonResult.setState(0);
+                return jsonResult;
+            }
         }else {
             log.info("未找到User");
             return new JsonResult("未找到User");
         }
+    }
+
+
+    @RequestMapping(value = "isCollectAd")
+    @ResponseBody
+    public JsonResult isCollectAd(Integer id,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>用户是否收藏广告");
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        Object object = request.getSession().getAttribute("user");
+        if(null!=object&&object instanceof User) {
+            User user = (User) object;
+            boolean flag = adService.iscollectAd(id,user);
+            if (flag){
+                log.info(">>>>用户是否收藏该广告：{}",flag);
+                return new JsonResult("true");
+            }else{
+                log.info(">>>>用户是否收藏该广告：{}",flag);
+                return new JsonResult("false");
+            }
+
+        }
+        log.info("用户为空！");
+        throw new ServiceException("请先登录！");
+    }
+
+    /**
+     * 用户收藏广告
+     * @param id
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/collectAd")
+    @ResponseBody
+    public JsonResult collectAd(Integer id,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>用户收藏广告");
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        Object object = request.getSession().getAttribute("user");
+        if(null!=object&&object instanceof User) {
+            User user = (User) object;
+            adService.collectAd(id,user);
+            return new JsonResult();
+        }
+        log.info("用户为空！");
+        throw new ServiceException("请先登录！");
+    }
+
+    /**
+     * 用户取消收藏广告
+     * @param id
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/cancelCollectAd")
+    @ResponseBody
+    public JsonResult cancelCollectAd(Integer id,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>用户取消收藏广告");
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        Object object = request.getSession().getAttribute("user");
+        if(null!=object&&object instanceof User) {
+            User user = (User) object;
+            adService.canceCollectAd(id,user);
+            return new JsonResult();
+        }
+        log.info("用户为空！");
+        throw new ServiceException("请先登录！");
     }
 }

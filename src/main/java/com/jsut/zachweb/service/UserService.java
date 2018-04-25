@@ -15,4 +15,8 @@ public interface UserService {
     User resetPassword(String userEmail,String userPassword);
 
     void updateUser(User user);
+
+    User findUser(Integer id);
+
+    void payForAd(Integer money,Integer userId);
 }

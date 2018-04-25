@@ -1,8 +1,13 @@
 package com.jsut.zachweb.service.impl;
 
+import com.jsut.zachweb.constants.ZachWebConstants;
 import com.jsut.zachweb.dao.AdMapper;
 import com.jsut.zachweb.dao.CommentMapper;
+import com.jsut.zachweb.dao.UserAdMapper;
+import com.jsut.zachweb.dao.UserMapper;
 import com.jsut.zachweb.model.Ad;
+import com.jsut.zachweb.model.User;
+import com.jsut.zachweb.model.UserAd;
 import com.jsut.zachweb.service.AdService;
 import com.jsut.zachweb.util.DateUtil;
 import com.jsut.zachweb.util.ServiceException;
@@ -10,8 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AdServiceImpl implements AdService{
@@ -24,13 +31,21 @@ public class AdServiceImpl implements AdService{
     @Autowired
     private CommentMapper commentMapper;
 
+    @Autowired
+    private UserAdMapper userAdMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public void newAd(Ad ad) {
+        ad.setAdTypeCode(getAdTypeCode(ad.getAdType()));
         ad.setAdAddTime(DateUtil.getNowDate());
         ad.setAdLastUpdateTime(DateUtil.getNowDate());
         ad.setAdClickNumber(0);
         ad.setAdCollectNumber(0);
         ad.setAdCommentNumber(0);
+
         adMapper.insert(ad);
     }
 
@@ -49,27 +64,103 @@ public class AdServiceImpl implements AdService{
         adMapper.updateByPrimaryKeySelective(record);
     }
 
+    /**
+     * 点击广告查看详细信息
+     * @param adId
+     * @return
+     */
     @Override
     public Ad selectByPrimaryKey(Integer adId) {
         Ad ad = adMapper.selectByPrimaryKey(adId);
         if (null!=ad){
+            Integer adClickNumber = ad.getAdClickNumber()+1;
+            ad.setAdClickNumber(adClickNumber);
+            adMapper.updateByPrimaryKeySelective(ad);
             return ad;
         }else{
             throw new ServiceException("未找到这条信息！");
         }
     }
 
-    @Override
-    public void collectAdById(Integer userId, Integer adId) {
-        Ad adSelectByPrimaryKey = adMapper.selectByPrimaryKey(adId);
-        if (null==adSelectByPrimaryKey){
-            throw new ServiceException("没找到这条信息！");
-        }
-        adMapper.collectAdById(userId,adId);
-    }
+
 
     @Override
     public List<Ad> selectAdByUserId(Integer userId) {
         return adMapper.selectByUserId(userId);
+    }
+
+    @Override
+    public void collectAd(Integer adId, User user) {
+        if (null==user){
+            log.info("collectAd>>>user为空！");
+            throw new ServiceException("user为空！");
+        }
+        try{
+            UserAd userAd = new UserAd();
+            UUID uuid = UUID.randomUUID();
+            String sysId = uuid.toString().replace("-","");
+            userAd.setSysId(sysId);
+            userAd.setAdId(adId);
+            userAd.setUserId(user.getUserId());
+            userAd.setCollectTime(DateUtil.getNowDate());
+            userAdMapper.insertSelective(userAd);
+            Ad ad = adMapper.selectByPrimaryKey(adId);
+
+            //收藏后更新广告的收藏量+1
+            Integer adCollectNumber = ad.getAdCollectNumber()+1;
+            ad.setAdCollectNumber(adCollectNumber);
+            adMapper.updateByPrimaryKeySelective(ad);
+
+            //收藏广告后更新用户的习惯偏好
+            user.setUserPreference(user.getUserPreference()+ad.getAdTypeCode()+ ZachWebConstants.USER_PREFERENCE_SEPARATOR);
+            userMapper.updateByPrimaryKeySelective(user);
+        }catch (Exception e){
+            throw new ServiceException("收藏失败！失败原因："+e.getMessage());
+        }
+    }
+
+    @Override
+    public void canceCollectAd(Integer id, User user) {
+        if (null==user){
+            log.info("cancelCollectAd>>>user为空！");
+            throw new ServiceException("user为空！");
+        }
+        try {
+            userAdMapper.deleteByAdIdAndUserId(id,user.getUserId());
+        }catch (Exception e){
+            log.info("取消收藏失败！失败原因："+e.getMessage());
+            throw new ServiceException("取消收藏失败！失败原因："+e.getMessage());
+        }
+
+    }
+
+    @Override
+    public boolean iscollectAd(Integer id, User user) {
+        UserAd userAd = userAdMapper.selectByAdIdAndUserId(id, user.getUserId());
+        if (null!=userAd){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 根据广告类型获取广告类型编码
+     * @param adType
+     * @return
+     */
+    public String getAdTypeCode(String adType){
+        if (StringUtils.isEmpty(adType)){
+            log.info("getAdTypeCode>>>adType为空！");
+            throw new ServiceException("广告类型为空！");
+        }else{
+            log.info("getAdTypeCode>>>adType为{}",adType);
+            if (adType.equalsIgnoreCase(ZachWebConstants.GY_AD)){
+                return "a";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.ZP_AD)){
+                return "b";
+            }else{
+                return null;
+            }
+        }
     }
 }
