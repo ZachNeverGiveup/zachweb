@@ -1,5 +1,6 @@
 package com.jsut.zachweb.controller;
 
+import com.jsut.zachweb.dto.AdCollectDTO;
 import com.jsut.zachweb.model.Ad;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.AdService;
@@ -37,6 +38,7 @@ public class AdController {
 
     /**
      * 新增广告信息
+     *
      * @param type
      * @param title
      * @param html
@@ -45,24 +47,24 @@ public class AdController {
      * @param endTime
      * @return
      */
-    @RequestMapping(value = "/newAd",method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/newAd", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResult newAd(String type,String title,
-                            String html,String text,
-                           /* String picURL, String price,*/
-                            String startTime, String endTime,String money,
-            HttpServletRequest request, HttpServletResponse response){
+    public JsonResult newAd(String type, String title,
+                            String html, String text,
+            /* String picURL, String price,*/
+                            String startTime, String endTime, String money,
+                            HttpServletRequest request, HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        log.info(">>>type:"+type);
-        log.info(">>>title:"+title);
-        log.info(">>>html:"+html);
-        log.info(">>>text:"+text);
+        log.info(">>>type:" + type);
+        log.info(">>>title:" + title);
+        log.info(">>>html:" + html);
+        log.info(">>>text:" + text);
         /*log.info(">>>pic:"+picURL);
         log.info(">>>price:"+price);*/
-        log.info(">>>startTime:"+startTime);
-        log.info(">>>endTime:"+endTime);
-        User user = (User)request.getSession().getAttribute("user");
+        log.info(">>>startTime:" + startTime);
+        log.info(">>>endTime:" + endTime);
+        User user = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad();
         ad.setAdUserId(user.getUserId());
         ad.setAdType(type);
@@ -75,67 +77,70 @@ public class AdController {
         ad.setAdEndTime(DateUtil.DateFormat(endTime));
         adService.newAd(ad);
 
-        userService.payForAd(Integer.parseInt(StringUtils.trimAllWhitespace(money)),user.getUserId());
+        userService.payForAd(Integer.parseInt(StringUtils.trimAllWhitespace(money)), user.getUserId());
         return new JsonResult();
     }
 
     /**
      * 删除广告信息
+     *
      * @param id
      * @return
      */
-    @RequestMapping(value = "/delAd",method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/delAd", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResult delAd(Integer id){
+    public JsonResult delAd(Integer id, HttpServletRequest request, HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
         adService.deleteByPrimaryKey(id);
         return new JsonResult();
     }
 
     /**
-     *更新广告信息
-     * @param userId
+     * 更新广告信息
+     *
      * @param type
-     * @param typeCode
      * @param title
      * @param html
      * @param text
-     * @param picURL
-     * @param price
      * @param startTime
      * @param endTime
      * @return
      */
-    @RequestMapping(value = "/updateAd",method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/updateAd", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResult updateAd(Integer userId,
-                            String type,String typeCode,
-                            String title,String html,
-                            String text,String picURL,
-                            String price,
-                            Date startTime,Date endTime){
+    public JsonResult updateAd(String id, String type,
+                               String title, String html,
+                               String text,
+                               String price,
+                               String startTime, String endTime, String money, HttpServletResponse response, HttpServletRequest request) {
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
         Ad ad = new Ad();
-        ad.setAdUserId(userId);
+        ad.setAdId(Integer.parseInt(id));
+        ad.setAdUserId(((User) request.getSession().getAttribute("user")).getUserId());
         ad.setAdType(type);
-        ad.setAdTypeCode(typeCode);
         ad.setAdTitle(title);
         ad.setAdHtml(html);
         ad.setAdText(text);
-        ad.setAdPic(picURL);
+        //ad.setAdPic(picURL);
         ad.setAdPrice(Double.parseDouble(StringUtils.trimAllWhitespace(price)));
-        ad.setAdStartTime(startTime);
-        ad.setAdEndTime(endTime);
+        ad.setAdStartTime(DateUtil.DateFormat(startTime));
+        ad.setAdEndTime(DateUtil.DateFormat(endTime));
+        log.info("要修改的广告信息是：" + ad.toString());
         adService.updateByPrimaryKeySelective(ad);
         return new JsonResult();
     }
 
     /**
-     *  根据id查找广告信息的详细信息
+     * 根据id查找广告信息的详细信息
+     *
      * @param id
      * @return
      */
-    @RequestMapping(value = "/selectAdDetail",method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/selectAdDetail", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResult selectAd(Integer id,HttpServletResponse response,HttpServletRequest request){
+    public JsonResult selectAd(Integer id, HttpServletResponse response, HttpServletRequest request) {
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
         Ad ad = adService.selectByPrimaryKey(id);
@@ -143,51 +148,67 @@ public class AdController {
     }
 
     /**
+     * 查找用户发表的广告
      *
      * @param request
      * @param response
      * @return
      */
-    @RequestMapping(value="/findUserAd")
+    @RequestMapping(value = "/findUserAd")
     @ResponseBody
-    public JsonResult findUser(HttpServletRequest request,HttpServletResponse response){
+    public JsonResult findUser(HttpServletRequest request, HttpServletResponse response) {
         log.info(">>>>>>>进入finduserad");
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
         Object object = request.getSession().getAttribute("user");
-        if(null!=object&&object instanceof User){
-            User user = (User)object;
+        if (null != object && object instanceof User) {
+            User user = (User) object;
             List<Ad> ads = adService.selectAdByUserId(user.getUserId());
-            if (!CollectionUtils.isEmpty(ads)){
+            if (!CollectionUtils.isEmpty(ads)) {
                 return new JsonResult(ads);
-            }else{
+            } else {
                 log.info("该用户未发表广告");
                 JsonResult jsonResult = new JsonResult();
                 jsonResult.setState(0);
                 return jsonResult;
             }
-        }else {
+        } else {
             log.info("未找到User");
             return new JsonResult("未找到User");
         }
     }
 
+    /**
+     * 查找用户收藏的广告
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/findUserCollect")
+    @ResponseBody
+    public JsonResult findUserCollect(HttpServletRequest request, HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User)request.getSession().getAttribute("user");
+        List<AdCollectDTO> ads = adService.findUserCollect(user.getUserId());
+        return new JsonResult(ads);
+    }
 
     @RequestMapping(value = "isCollectAd")
     @ResponseBody
-    public JsonResult isCollectAd(Integer id,HttpServletRequest request,HttpServletResponse response){
+    public JsonResult isCollectAd(Integer id, HttpServletRequest request, HttpServletResponse response) {
         log.info(">>>>用户是否收藏广告");
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
         Object object = request.getSession().getAttribute("user");
-        if(null!=object&&object instanceof User) {
+        if (null != object && object instanceof User) {
             User user = (User) object;
-            boolean flag = adService.iscollectAd(id,user);
-            if (flag){
-                log.info(">>>>用户是否收藏该广告：{}",flag);
+            boolean flag = adService.iscollectAd(id, user);
+            if (flag) {
+                log.info(">>>>用户是否收藏该广告：{}", flag);
                 return new JsonResult("true");
-            }else{
-                log.info(">>>>用户是否收藏该广告：{}",flag);
+            } else {
+                log.info(">>>>用户是否收藏该广告：{}", flag);
                 return new JsonResult("false");
             }
 
@@ -198,21 +219,22 @@ public class AdController {
 
     /**
      * 用户收藏广告
+     *
      * @param id
      * @param request
      * @param response
      * @return
      */
-    @RequestMapping(value="/collectAd")
+    @RequestMapping(value = "/collectAd")
     @ResponseBody
-    public JsonResult collectAd(Integer id,HttpServletRequest request,HttpServletResponse response){
+    public JsonResult collectAd(Integer id, HttpServletRequest request, HttpServletResponse response) {
         log.info(">>>>用户收藏广告");
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
         Object object = request.getSession().getAttribute("user");
-        if(null!=object&&object instanceof User) {
+        if (null != object && object instanceof User) {
             User user = (User) object;
-            adService.collectAd(id,user);
+            adService.collectAd(id, user);
             return new JsonResult();
         }
         log.info("用户为空！");
@@ -221,24 +243,43 @@ public class AdController {
 
     /**
      * 用户取消收藏广告
+     *
      * @param id
      * @param request
      * @param response
      * @return
      */
-    @RequestMapping(value="/cancelCollectAd")
+    @RequestMapping(value = "/cancelCollectAd")
     @ResponseBody
-    public JsonResult cancelCollectAd(Integer id,HttpServletRequest request,HttpServletResponse response){
+    public JsonResult cancelCollectAd(Integer id, HttpServletRequest request, HttpServletResponse response) {
         log.info(">>>>用户取消收藏广告");
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
         Object object = request.getSession().getAttribute("user");
-        if(null!=object&&object instanceof User) {
+        if (null != object && object instanceof User) {
             User user = (User) object;
-            adService.canceCollectAd(id,user);
+            adService.canceCollectAd(id, user);
             return new JsonResult();
         }
         log.info("用户为空！");
         throw new ServiceException("请先登录！");
+    }
+
+    /**
+     * 根据关键词搜索广告
+     *
+     * @param keyword
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/searchAds")
+    @ResponseBody
+    public JsonResult searchAds(String keyword, HttpServletRequest request, HttpServletResponse response) {
+        log.info(">>>>根据关键词： {} 搜索>>>", keyword);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        List<Ad> adList = adService.selectAdsByKeyWord(keyword);
+        return null;
     }
 }

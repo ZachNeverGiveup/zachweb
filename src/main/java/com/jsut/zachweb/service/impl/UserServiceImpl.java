@@ -14,6 +14,7 @@ import org.springframework.util.StringUtils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -22,8 +23,6 @@ public class UserServiceImpl implements UserService {
     //日志记录，存到log目录下的sys.log文件中
     private static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    private static final String NO_AUTHENTICATE ="NO_AUTHENTICATE";
-    private static final String HAS_AUTHENTICATED ="HAS_AUTHENTICATED";
     @Autowired
     private UserMapper userMapper;
 
@@ -137,12 +136,141 @@ public class UserServiceImpl implements UserService {
         userMapper.updateByPrimaryKeySelective(user);
     }
 
+    /**
+     * 用户充值
+     * @param money
+     * @param user
+     */
+    @Override
+    public void recharge(String money, User user) {
+        if (null==user){
+            throw new ServiceException("user对象为空！~");
+        }else{
+            try{
+                Integer rechargeMoney = Integer.parseInt(StringUtils.trimAllWhitespace(money));
+                Integer newMoney = user.getUserMoney()+rechargeMoney;
+                user.setUserMoney(newMoney);
+                userMapper.updateByPrimaryKeySelective(user);
+            }catch (Exception e){
+                throw new ServiceException("请输入正确的数字！");
+            }
+        }
+    }
+
+    /**
+     * 申请认证
+     * @param user
+     */
+    @Override
+    public void toVerify(User user) {
+        User user1 = userMapper.selectByPrimaryKey(user.getUserId());
+        if (null==user1){
+            throw new ServiceException("user对象为空！~");
+        }
+        user1.setUserVerifyStatus(ZachWebConstants.PENDING);
+        userMapper.updateByPrimaryKeySelective(user1);
+    }
+
+    /**
+     * 更新密码
+     * @param user
+     * @param oldPassword
+     * @param newPassword
+     */
+    @Override
+    public void updatePassword(User user, String oldPassword, String newPassword) {
+        log.info(">>>>>>>>oldPassword>>>>>"+oldPassword);
+        User user1 = userMapper.selectByPrimaryKey(user.getUserId());
+        log.info(">>>>>>>>MD5.getInstance().getMD5(oldPassword)>>>>>"+MD5.getInstance().getMD5(oldPassword));
+        log.info(">>>>>>>>user1.getUserPassword()>>>>>"+user1.getUserPassword());
+        if(null!=user1){
+            if (!MD5.getInstance().getMD5(oldPassword).equalsIgnoreCase(user1.getUserPassword())){
+                throw new ServiceException("原密码错误！！！");
+            }else{
+                user1.setUserPassword(MD5.getInstance().getMD5(newPassword));
+                userMapper.updateByPrimaryKeySelective(user1);
+                String subject = "ZachWeb 广告信息网修改密码提醒";
+                String content = "你刚刚修改了密码，如不是本人操作，请联系管理员";
+                mailService.sendSimpleMail(user1.getUserEmail(),subject,content);
+            }
+
+        }
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        List<User> users = userMapper.selectAllUser();
+        return users;
+    }
+
+    @Override
+    public List<User> findUserByPage(String page, String limit) {
+        Integer pageSize = Integer.parseInt(limit);
+        Integer pageStart = pageSize * (Integer.parseInt(page) - 1);
+        List<User> users = userMapper.findUserByPage(pageStart,pageSize);
+        return users;
+    }
+
+    /**
+     * 删除用户
+     * @param userId
+     */
+    @Override
+    public void delUser(Integer userId) {
+        userMapper.deleteByPrimaryKey(userId);
+    }
+
+    @Override
+    public void givePermission(Integer userId) {
+        User user = userMapper.selectByPrimaryKey(userId);
+        if(null==user){
+            throw new ServiceException("该用户不存在！");
+        }
+        user.setUserGrade(1);
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public void delPermission(Integer userId) {
+        User user = userMapper.selectByPrimaryKey(userId);
+        if(null==user){
+            throw new ServiceException("该用户不存在！");
+        }
+        user.setUserGrade(0);
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public List<User> findUserPendingByPage(String page, String limit) {
+        Integer pageSize = Integer.parseInt(limit);
+        Integer pageStart = pageSize * (Integer.parseInt(page) - 1);
+        List<User> users = userMapper.findPendingUserByPage(pageStart,pageSize);
+        return users;
+
+    }
+
+    @Override
+    public List<User> findAllPendingUser() {
+        List<User> users = userMapper.selectPendingUser();
+        return users;
+    }
+
+    @Override
+    public void giveAuthenticated(Integer userId) {
+        User user = userMapper.selectByPrimaryKey(userId);
+        if(null==user){
+            throw new ServiceException("该用户不存在！");
+        }
+        user.setUserVerifyStatus(ZachWebConstants.HAS_AUTHENTICATED);
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
 
     /**
      * 用户参数验证
      * @param user
      */
-    public void validateUser(User user){
+    private void validateUser(User user){
         if(null==user){
             throw new ServiceException("user对象为空！~");
         }
@@ -154,7 +282,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public void sendRegistMail(String to){
+    private void sendRegistMail(String to){
         String subject = "ZachWeb 广告信息网注册邮件提醒";
         String content = "欢迎注册新账号";
         mailService.sendSimpleMail(to,subject,content);
@@ -166,7 +294,7 @@ public class UserServiceImpl implements UserService {
      * @param userType
      * @return
      */
-    public String getUserTypeCode(String userType){
+    private String getUserTypeCode(String userType){
         String userTypeCode;
         if (StringUtils.isEmpty(userType)||null==userType){
             log.info("用户类型为空！");
@@ -204,18 +332,17 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public String getUserVerifyStatus(String userType){
+    private String getUserVerifyStatus(String userType){
         String userVerifyStatus = "";
-        if (StringUtils.isEmpty(userType)||null==userType){
+        if (StringUtils.isEmpty(userType)){
             log.info("用户类型为空！");
             throw new ServiceException("用户类型不允许为空！");
         }else{
             if (userType.equalsIgnoreCase("普通用户")){
-                userVerifyStatus=HAS_AUTHENTICATED;
+                userVerifyStatus=ZachWebConstants.HAS_AUTHENTICATED;
             }else{
-                userVerifyStatus=NO_AUTHENTICATE;
+                userVerifyStatus=ZachWebConstants.NO_AUTHENTICATE;
             }
-
         }
         return userVerifyStatus;
     }

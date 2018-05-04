@@ -22,6 +22,13 @@
     from user_ad
     where ad_id = #{adId,jdbcType=INTEGER} AND user_id = #{userId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from user_ad
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user_ad
     where sys_id = #{sysId,jdbcType=VARCHAR}

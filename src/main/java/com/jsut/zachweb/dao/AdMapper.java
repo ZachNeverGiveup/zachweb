@@ -21,4 +21,6 @@ public interface AdMapper {
 
 
     List<Ad> selectByUserId(Integer userId);
+
+    List<Ad> selectByKeyword(String keyword);
 }

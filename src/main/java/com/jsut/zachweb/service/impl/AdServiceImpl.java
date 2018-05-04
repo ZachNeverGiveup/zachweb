@@ -5,6 +5,7 @@ import com.jsut.zachweb.dao.AdMapper;
 import com.jsut.zachweb.dao.CommentMapper;
 import com.jsut.zachweb.dao.UserAdMapper;
 import com.jsut.zachweb.dao.UserMapper;
+import com.jsut.zachweb.dto.AdCollectDTO;
 import com.jsut.zachweb.model.Ad;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.model.UserAd;
@@ -15,8 +16,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -112,7 +115,11 @@ public class AdServiceImpl implements AdService{
             adMapper.updateByPrimaryKeySelective(ad);
 
             //收藏广告后更新用户的习惯偏好
-            user.setUserPreference(user.getUserPreference()+ad.getAdTypeCode()+ ZachWebConstants.USER_PREFERENCE_SEPARATOR);
+            if (StringUtils.isEmpty(user.getUserPreference())){
+                user.setUserPreference(ad.getAdTypeCode()+ ZachWebConstants.USER_PREFERENCE_SEPARATOR);
+            }else {
+                user.setUserPreference(user.getUserPreference()+ad.getAdTypeCode()+ ZachWebConstants.USER_PREFERENCE_SEPARATOR);
+            }
             userMapper.updateByPrimaryKeySelective(user);
         }catch (Exception e){
             throw new ServiceException("收藏失败！失败原因："+e.getMessage());
@@ -131,7 +138,12 @@ public class AdServiceImpl implements AdService{
             log.info("取消收藏失败！失败原因："+e.getMessage());
             throw new ServiceException("取消收藏失败！失败原因："+e.getMessage());
         }
+        Ad ad = adMapper.selectByPrimaryKey(id);
 
+        //取消收藏后更新广告的收藏量-1
+        Integer adCollectNumber = ad.getAdCollectNumber()-1;
+        ad.setAdCollectNumber(adCollectNumber);
+        adMapper.updateByPrimaryKeySelective(ad);
     }
 
     @Override
@@ -141,6 +153,38 @@ public class AdServiceImpl implements AdService{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Ad> selectAdsByKeyWord(String keyword) {
+        List<Ad> ads = new ArrayList<Ad>();
+        if (!StringUtils.isEmpty(keyword)){
+            ads = adMapper.selectByKeyword(keyword);
+            return ads;
+        }else{
+            return ads;
+        }
+    }
+
+    /**
+     * 查找用户收藏的广告
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<AdCollectDTO> findUserCollect(Integer userId) {
+        List<AdCollectDTO> adCollectDTOList = new ArrayList<AdCollectDTO>();
+        List<UserAd> userAds=userAdMapper.selectByUserId(userId);
+        if (!CollectionUtils.isEmpty(userAds)){
+            for (UserAd userAd:userAds){
+                Ad ad = adMapper.selectByPrimaryKey(userAd.getAdId());
+                AdCollectDTO adCollectDTO = new AdCollectDTO();
+                adCollectDTO.setAd(ad);
+                adCollectDTO.setCollectTime(userAd.getCollectTime());
+                adCollectDTOList.add(adCollectDTO);
+            }
+        }
+        return adCollectDTOList;
     }
 
     /**

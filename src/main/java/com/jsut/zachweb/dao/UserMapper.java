@@ -1,7 +1,10 @@
 package com.jsut.zachweb.dao;
 
 import com.jsut.zachweb.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface UserMapper {
@@ -22,4 +25,12 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectAllUser();
+
+    List<User> findUserByPage(@Param("pageStart") Integer pageStart, @Param("pageSize") Integer PageSize);
+
+    List<User> findPendingUserByPage(@Param("pageStart") Integer pageStart, @Param("pageSize") Integer PageSize);
+
+    List<User> selectPendingUser();
 }

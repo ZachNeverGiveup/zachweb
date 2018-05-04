@@ -1,5 +1,6 @@
 package com.jsut.zachweb.controller;
 
+import com.jsut.zachweb.dto.AdminUserResponseDTO;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.UserService;
 import com.jsut.zachweb.util.JsonResult;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
+import java.util.List;
 
 /**
  * 用户控制层
@@ -177,7 +179,7 @@ public class UserController {
     }
 
     /**
-     * 修改密码
+     * 忘记密码-->修改密码
      * @param userPassword
      * @param request
      * @param response
@@ -191,6 +193,29 @@ public class UserController {
         response.setHeader("Access-Control-Allow-Credentials", "true");
         User user = userService.resetPassword(userEmail, userPassword);
         return new JsonResult(user);
+    }
+
+    /**
+     * 修改密码
+     * @param oldPassword,newPassword
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/updatePassword")
+    @ResponseBody
+    public JsonResult updatePassword(String oldPassword,String newPassword,HttpServletRequest request,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user= (User) request.getSession().getAttribute("user");
+        userService.updatePassword(user,oldPassword,newPassword);
+        try {
+            request.getSession().removeAttribute("user");
+            return new JsonResult();
+        }catch(Exception e){
+            log.info("删除session失败");
+            throw new ServiceException("删除session失败");
+        }
     }
 
     /**
@@ -217,4 +242,167 @@ public class UserController {
         userService.updateUser(user);
         return new JsonResult(user);
     }
+
+    @RequestMapping(value = "/recharge")
+    @ResponseBody
+    public JsonResult recharge(String money,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>>>余额充值:money:{}",money);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User) request.getSession().getAttribute("user");
+        userService.recharge(money,user);
+        return new JsonResult();
+    }
+
+    /**
+     * 用户申请认证
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "toVerify")
+    @ResponseBody
+    public JsonResult toVerify(HttpServletRequest request,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User) request.getSession().getAttribute("user");
+        log.info(">>>>>>用户  {}  申请认证",user.getUserName());
+        userService.toVerify(user);
+        return new JsonResult();
+    }
+
+    /**
+     * 管理员查找所有用户
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/admin/findUser")
+    @ResponseBody
+    public AdminUserResponseDTO adminFindUser(String page,String limit,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>>>>>管理员查找所有用户>>>>>>>>>>>>>>{},{}",page,limit);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        /*User user = (User) request.getSession().getAttribute("user");
+        if (user.getUserGrade()<2){
+            throw new ServiceException("你没有权限");
+        }*/
+        List<User> users = userService.findUserByPage(page,limit);
+        AdminUserResponseDTO adminUserResponseDTO = new AdminUserResponseDTO();
+        adminUserResponseDTO.setCode(0);
+        adminUserResponseDTO.setMsg("");
+        List<User> allUser = userService.findAllUser();
+        adminUserResponseDTO.setCount(allUser.size());
+        adminUserResponseDTO.setData(users);
+        return adminUserResponseDTO;
+    }
+    /**
+     * 管理员查找所有待认证的用户
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/admin/findPendingUser")
+    @ResponseBody
+    public AdminUserResponseDTO findPendingUser(String page,String limit,HttpServletRequest request,HttpServletResponse response){
+        log.info(">>>>>>>>管理员查找所有待认证的用户>>>>>>>>>>>>>>{},{}",page,limit);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        /*User user = (User) request.getSession().getAttribute("user");
+        if (user.getUserGrade()<2){
+            throw new ServiceException("你没有权限");
+        }*/
+        List<User> users = userService.findUserPendingByPage(page,limit);
+        AdminUserResponseDTO adminUserResponseDTO = new AdminUserResponseDTO();
+        adminUserResponseDTO.setCode(0);
+        adminUserResponseDTO.setMsg("");
+        List<User> allUser = userService.findAllPendingUser();
+        adminUserResponseDTO.setCount(allUser.size());
+        adminUserResponseDTO.setData(users);
+        return adminUserResponseDTO;
+    }
+
+    /**
+     * 通过认证
+     * @param id
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/giveAuthenticated")
+    @ResponseBody
+    public JsonResult giveAuthenticated(String id,HttpServletRequest request,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User) request.getSession().getAttribute("user");
+        if (user.getUserGrade()<2){
+            throw new ServiceException("你没有权限");
+        }
+        Integer userId = Integer.parseInt(id);
+        userService.giveAuthenticated(userId);
+        return new JsonResult();
+    }
+
+    /**
+     * 删除用户
+     * @param id
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "delUser")
+    @ResponseBody
+    public JsonResult toVerify(String id,HttpServletRequest request,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User) request.getSession().getAttribute("user");
+        if (user.getUserGrade()<2){
+            throw new ServiceException("你没有权限");
+        }
+        Integer userId = Integer.parseInt(id);
+        userService.delUser(userId);
+        return new JsonResult();
+    }
+
+    /**
+     * 赋予发表广告的权限
+     * @param id
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/givePermission")
+    @ResponseBody
+    public JsonResult givePermission(String id,HttpServletRequest request,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User) request.getSession().getAttribute("user");
+        if (user.getUserGrade()<2){
+            throw new ServiceException("你没有权限");
+        }
+        Integer userId = Integer.parseInt(id);
+        userService.givePermission(userId);
+        return new JsonResult();
+    }
+    /**
+     * 撤回发表广告的权限
+     * @param id
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/delPermission")
+    @ResponseBody
+    public JsonResult delPermission(String id,HttpServletRequest request,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User) request.getSession().getAttribute("user");
+        if (user.getUserGrade()<2){
+            throw new ServiceException("你没有权限");
+        }
+        Integer userId = Integer.parseInt(id);
+        userService.delPermission(userId);
+        return new JsonResult();
+    }
+
 }

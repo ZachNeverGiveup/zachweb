@@ -1,5 +1,6 @@
 package com.jsut.zachweb.service;
 
+import com.jsut.zachweb.dto.AdCollectDTO;
 import com.jsut.zachweb.model.Ad;
 import com.jsut.zachweb.model.User;
 
@@ -52,5 +53,16 @@ public interface AdService {
      */
     void canceCollectAd(Integer id, User user);
 
+    /**
+     * 用户是否收藏该广告
+     * @param id
+     * @param user
+     * @return
+     */
     boolean iscollectAd(Integer id, User user);
+
+    List<Ad> selectAdsByKeyWord(String keyword);
+
+    List<AdCollectDTO> findUserCollect(Integer userId);
+
 }

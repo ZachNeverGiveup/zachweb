@@ -52,6 +52,32 @@
     from user
     where user_email = #{userEmail,jdbcType=VARCHAR}
   </select>
+  <select id="selectAllUser" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_grade &lt; 2
+  </select>
+  <select id="selectPendingUser" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_grade &lt; 2 AND user_verify_status = 'PENDING'
+  </select>
+  <select id="findPendingUserByPage" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_grade &lt; 2 AND user_verify_status = 'PENDING'
+    limit #{pageStart},#{pageSize}
+  </select>
+  <select id="findUserByPage" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_grade &lt; 2
+    limit #{pageStart},#{pageSize}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
