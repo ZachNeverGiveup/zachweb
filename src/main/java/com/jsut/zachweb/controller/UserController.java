@@ -1,5 +1,7 @@
 package com.jsut.zachweb.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.jsut.zachweb.dto.AdminUserResponseDTO;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.UserService;
@@ -15,12 +17,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户控制层
@@ -350,7 +360,7 @@ public class UserController {
      * @param response
      * @return
      */
-    @RequestMapping(value = "delUser")
+    @RequestMapping(value = "/delUser")
     @ResponseBody
     public JsonResult toVerify(String id,HttpServletRequest request,HttpServletResponse response){
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
@@ -359,6 +369,7 @@ public class UserController {
         if (user.getUserGrade()<2){
             throw new ServiceException("你没有权限");
         }
+        log.info(">>>>>>要删除的用户id:{}",id);
         Integer userId = Integer.parseInt(id);
         userService.delUser(userId);
         return new JsonResult();
@@ -405,4 +416,73 @@ public class UserController {
         return new JsonResult();
     }
 
+    /**
+     * 上传头像
+     * @return json字符串
+     */
+    @RequestMapping(value="/upload", method=RequestMethod.POST)
+    public String uploadFile(MultipartFile file,HttpServletRequest request,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        if(file.isEmpty()){
+            return "false";
+        }
+        String fileName = file.getOriginalFilename();
+
+        String path = System.getProperty("user.dir") + "/uploadFile" ;
+        File dest = new File(path + "/" + fileName);
+        if(!dest.getParentFile().exists()){ //判断文件父目录是否存在
+            dest.getParentFile().mkdir();
+        }
+        try {
+            file.transferTo(dest); //保存文件
+            return "true";
+        } catch (IllegalStateException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return "false";
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return "false";
+        }
+        /*// 返回结果用 json对象
+        JSONObject returnObj = new JSONObject();
+        //从请求中获取请求的json字符串
+        String strData = req.getParameter("data");
+        //将获取到的JSON字符串转换为Imgidx对象
+        //UploadInfo info = JSON.parseObject(strData, UploadInfo.class);
+        log.info(">>>>>>>>>strData>>>>>>>>>>"+strData);
+        //获取上传的文件集合
+        List<MultipartFile> files = ((MultipartHttpServletRequest)req).getFiles("file");
+        MultipartFile file = files.get(0);
+        // 返回信息头部
+        Map<String, String> header = new HashMap<String, String>();
+        header.put("code", "0");
+        header.put("msg", "success");
+        File file1234 = new File(file.getOriginalFilename());
+        //插入数据的影响的数据条数
+        int result = 0;
+        //将文件上传到save
+        if(!file.isEmpty()){
+            try{
+                byte[] arr = new byte[1024];
+                BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file1234));
+                bos.write(arr);
+                bos.flush();
+                bos.close();
+                header.put("code", "1");
+                header.put("msg", "success");
+                header.put("url", file1234.getAbsolutePath());
+            }catch(Exception e){
+                header.put("code", "-1");
+                header.put("msg", "errorMsg:" + e.getMessage());
+            }
+        }else{
+            header.put("code", "-1");
+            header.put("msg", "errorMsg:上传文件失败，因为文件是空的");
+        }
+        //String returnStr = returnObj.toJSONString(header);
+        return header;*/
+    }
 }

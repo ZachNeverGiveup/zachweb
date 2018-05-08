@@ -182,4 +182,28 @@ public class Ad {
     public void setAdLastCommentTime(Date adLastCommentTime) {
         this.adLastCommentTime = adLastCommentTime;
     }
+
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "adId=" + adId +
+                ", adUserId=" + adUserId +
+                ", adType='" + adType + '\'' +
+                ", adTypeCode='" + adTypeCode + '\'' +
+                ", adTitle='" + adTitle + '\'' +
+                ", adHtml='" + adHtml + '\'' +
+                ", adText='" + adText + '\'' +
+                ", adPic='" + adPic + '\'' +
+                ", adPrice=" + adPrice +
+                ", adAddTime=" + adAddTime +
+                ", adLastUpdateTime=" + adLastUpdateTime +
+                ", adStartTime=" + adStartTime +
+                ", adEndTime=" + adEndTime +
+                ", adClickNumber=" + adClickNumber +
+                ", adCollectNumber=" + adCollectNumber +
+                ", adCommentNumber=" + adCommentNumber +
+                ", adLastCommentTime=" + adLastCommentTime +
+                ", user=" + user +
+                '}';
+    }
 }

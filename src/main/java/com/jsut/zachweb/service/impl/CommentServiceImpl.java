@@ -54,6 +54,7 @@ public class CommentServiceImpl implements CommentService {
             Ad ad = adMapper.selectByPrimaryKey(adId);
             Integer adCommentNumber = ad.getAdCommentNumber()+1;
             ad.setAdCommentNumber(adCommentNumber);
+            ad.setAdLastCommentTime(DateUtil.getNowDate());
             adMapper.updateByPrimaryKeySelective(ad);
         }catch(Exception e){
             throw new ServiceException("评论失败！失败原因："+e.getMessage());
@@ -70,9 +71,16 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void delComments(Integer id) {
-        if (null==id){
+        Comment comment = commentMapper.selectByPrimaryKey(id);
+        if (null==comment){
             throw new ServiceException("评论id为空！删除失败");
         }
         commentMapper.deleteByPrimaryKey(id);
+        Integer adId=comment.getCommentAdId();
+        //将该广告的评论数量减一
+        Ad ad = adMapper.selectByPrimaryKey(adId);
+        Integer adCommentNumber = ad.getAdCommentNumber()-1;
+        ad.setAdCommentNumber(adCommentNumber);
+        adMapper.updateByPrimaryKeySelective(ad);
     }
 }

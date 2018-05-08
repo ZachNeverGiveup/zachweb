@@ -17,7 +17,7 @@ public interface AdService {
      * 根据ID删除
      * @param adId
      */
-    void deleteByPrimaryKey(Integer adId);
+    void deleteByPrimaryKey(Integer adId,User user);
 
     /**
      * 根据主键更新
@@ -65,4 +65,19 @@ public interface AdService {
 
     List<AdCollectDTO> findUserCollect(Integer userId);
 
+    List<Ad> findAllAds();
+
+    List<Ad> findAdsByPage(String page, String limit);
+
+    List<Ad> findUserLikeAdList(User user);
+
+    /**
+     * 根据广告类型、页码、每页显示数量来查找广告
+     * @param adType
+     * @param sortType
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<Ad> findIndexAdListByPage(String adType,String sortType,String page,String limit);
 }

@@ -53,10 +53,14 @@ public class AdServiceImpl implements AdService{
     }
 
     @Override
-    public void deleteByPrimaryKey(Integer adId) {
+    public void deleteByPrimaryKey(Integer adId,User user) {
         Ad adSelectByPrimaryKey = adMapper.selectByPrimaryKey(adId);
         if (null==adSelectByPrimaryKey){
             throw new ServiceException("没找到这条信息！");
+        }
+        //如果广告不是本人或该用户不是管理员
+        if (!adSelectByPrimaryKey.getUser().getUserId().equals(user.getUserId())&&user.getUserGrade()<2){
+            throw new ServiceException("你没有权限删除广告！");
         }
         adMapper.deleteByPrimaryKey(adId);
         commentMapper.deleteByAdId(adId);
@@ -187,6 +191,70 @@ public class AdServiceImpl implements AdService{
         return adCollectDTOList;
     }
 
+    @Override
+    public List<Ad> findAllAds() {
+        return adMapper.selectAllAds();
+    }
+
+    @Override
+    public List<Ad> findAdsByPage(String page, String limit) {
+        Integer pageSize = Integer.parseInt(limit);
+        Integer pageStart = pageSize * (Integer.parseInt(page) - 1);
+        return adMapper.selectAdsByPage(pageStart,pageSize);
+    }
+
+    /**
+     * 算法推荐
+     * @param user
+     * @return
+     */
+    @Override
+    public List<Ad> findUserLikeAdList(User user) {
+        List<Ad> adList = new ArrayList<Ad>();
+        if (null==user){
+            return adList;
+        }
+        String[] preferences = user.getUserPreference().split(ZachWebConstants.USER_PREFERENCE_SEPARATOR);
+        log.info(preferences.toString());
+        String maxTypefromPreference = findMaxTypefromPreference(preferences);
+        String[] types = maxTypefromPreference.split(ZachWebConstants.USER_PREFERENCE_SEPARATOR);
+        if (types.length==1){
+            log.info("用户最喜欢的广告类型是：{}",types[0]);
+            List<Ad> indexAdListByPage = findIndexAdListByPage(types[0], "a.ad_click_number", "1", "4");
+            adList.addAll(indexAdListByPage);
+        }else{
+            for (String type:types){
+                log.info("用户最喜欢的广告类型们是这些：{}",type);
+                List<Ad> indexAdListByPage = findIndexAdListByPage(type, "a.ad_click_number", "1", "2");
+                adList.addAll(indexAdListByPage);
+            }
+        }
+
+        for (Ad ad:adList){
+            log.info("*********用户猜你喜欢的广告是：********"+ad.getAdTitle()+ad.getAdType()+ad.getAdClickNumber());
+        }
+        return adList;
+    }
+
+    @Override
+    public List<Ad> findIndexAdListByPage(String adType,String sortType, String page, String limit) {
+        if (StringUtils.isEmpty(limit)){
+            limit="10";
+        }
+        if (StringUtils.isEmpty(page)){
+            page="1";
+        }
+        Integer pageSize = Integer.parseInt(limit);
+        Integer pageStart = pageSize * (Integer.parseInt(page) - 1);
+        if(StringUtils.isEmpty(sortType)||sortType.equalsIgnoreCase("1")){
+            sortType = "a.ad_last_update_time";
+        }else if (sortType.equalsIgnoreCase("2")){
+            sortType = "a.ad_comment_number";
+        }
+        List<Ad> adList=adMapper.selectAdsByPageAndAdType(adType,sortType,pageStart,pageSize);
+        return adList;
+    }
+
     /**
      * 根据广告类型获取广告类型编码
      * @param adType
@@ -202,9 +270,59 @@ public class AdServiceImpl implements AdService{
                 return "a";
             }else if (adType.equalsIgnoreCase(ZachWebConstants.ZP_AD)){
                 return "b";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.FC_AD)){
+                return "c";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.ES_AD)){
+                return "d";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.CW_AD)){
+                return "e";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.SW_AD)){
+                return "f";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.FW_AD)){
+                return "g";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.LY_AD)){
+                return "h";
+            }else if (adType.equalsIgnoreCase(ZachWebConstants.CY_AD)){
+                return "i";
             }else{
                 return null;
             }
         }
+    }
+
+    /**
+     * 从用户偏好数组中找出出现次数最多的
+     * @param strs
+     * @return
+     */
+    public String findMaxTypefromPreference(String[] strs){
+        int max=1;
+        String result="";
+        for(int i=0;i<strs.length-1;i++)
+        {
+            int count=1;
+            for(int j=i+1;j<strs.length;j++)
+            {
+                if(strs[i].equals(strs[j]))
+                    count++;
+            }
+            if(max<count)
+                max=count;
+        }
+        log.info("重复最多次数为："+max);
+        for(int i=0;i<strs.length-1;i++)
+        {
+            int count=1;
+            for(int j=i+1;j<strs.length;j++)
+            {
+                if(strs[i].equals(strs[j]))
+                    count++;
+            }
+            if(count==max){
+                log.info("重复最多次("+max+")的字符串为："+strs[i]);
+                result=StringUtils.isEmpty(result)?strs[i]:(result+ZachWebConstants.USER_PREFERENCE_SEPARATOR+strs[i]);
+            }
+        }
+        return result;
     }
 }

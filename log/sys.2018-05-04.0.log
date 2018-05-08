@@ -1,0 +1,404 @@
+2018-05-04 17:07:35,329 INFO (StartupInfoLogger.java:48)- Starting ZachwebApplication on nkgw10nh1856 with PID 7908 (F:\ZachAdWeb\zachweb\target\classes started by Zach.Zhang in F:\ZachAdWeb\zachweb)
+2018-05-04 17:07:35,329 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+2018-05-04 17:07:35,329 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-04 17:07:38,923 INFO (StartupInfoLogger.java:57)- Started ZachwebApplication in 3.906 seconds (JVM running for 7.676)
+2018-05-04 17:07:46,535 INFO (UserController.java:76)- User{userId=null, userName='张弛', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-05-04 17:07:46,896 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-05-04 17:07:46,911 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 张弛(String)
+2018-05-04 17:07:46,927 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:07:46,927 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-05-04 17:07:46,927 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 张弛(String), 202cb962ac59075b964b07152d234b70(String)
+2018-05-04 17:07:46,927 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:07:46,927 INFO (UserServiceImpl.java:81)- 验证成功！
+2018-05-04 17:07:46,927 INFO (UserController.java:81)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1999, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:07:47,437 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:07:47,438 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:07:47,438 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:07:47,440 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:07:47,440 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:07:47,441 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:07:47,442 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:07:47,446 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:07:47,450 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1999, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:07:47,459 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 5
+2018-05-04 17:08:02,975 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:08:02,976 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:08:02,978 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:08:02,979 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:08:02,984 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:08:02,985 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1999, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:08:03,169 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:08:03,170 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:08:03,171 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:08:03,172 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:08:03,175 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:08:03,177 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1999, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:35:34,641 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:35:34,643 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:35:34,651 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:35:34,653 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:35:34,655 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:35:34,656 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1999, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:35:55,606 INFO (AdController.java:59)- >>>type:招聘
+2018-05-04 17:35:55,606 INFO (AdController.java:60)- >>>title:layui
+2018-05-04 17:35:55,607 INFO (AdController.java:61)- >>>html:<p align="center"><a href="http://www.layui.com/" rel="nofollow"><img src="https://camo.githubusercontent.com/5b5d48acce57111d234472870631b18a24feb4be/687474703a2f2f63646e2e6c617975692e636f6d2f75706c6f61642f323031365f31302f3136385f313437363634343134343737345f35303435302e706e67" alt="layui" width="520" data-canonical-src="http://cdn.layui.com/upload/2016_10/168_1476644144774_50450.png"></a></p><p align="center">Classic modular front-end UI framework</p><p align="center"><a href="https://travis-ci.org/sentsin/layui" rel="nofollow"><img alt="Build Status" src="https://camo.githubusercontent.com/5ae6ff10ec8d385f63c26de2d23408ce148899ed/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f73656e7473696e2f6c617975692f6d61737465722e737667" data-canonical-src="https://img.shields.io/travis/sentsin/layui/master.svg"></a>&nbsp;<a href="https://saucelabs.com/beta/builds/7e6196205e4f492496203388fc003b65" rel="nofollow"><img src="https://camo.githubusercontent.com/58070026fb8a9a704c045f8a07ec750ae3b4c586/68747470733a2f2f73617563656c6162732e636f6d2f6275696c647374617475732f6c61797569" alt="Build Status" data-canonical-src="https://saucelabs.com/buildstatus/layui"></a>&nbsp;<a href="https://coveralls.io/r/sentsin/layui?branch=master" rel="nofollow"><img alt="Test Coverage" src="https://camo.githubusercontent.com/4291982cca091963bab4f158f8c2c51dd3462a22/68747470733a2f2f696d672e736869656c64732e696f2f636f766572616c6c732f73656e7473696e2f6c617975692f6d61737465722e737667" data-canonical-src="https://img.shields.io/coveralls/sentsin/layui/master.svg"></a></p><p align="center"><a href="https://saucelabs.com/beta/builds/7e6196205e4f492496203388fc003b65" rel="nofollow"><img src="https://camo.githubusercontent.com/11571898de67097e7757bdfbf2c27eab0930285e/68747470733a2f2f73617563656c6162732e636f6d2f62726f777365722d6d61747269782f6c617975692e737667" alt="Browser Matrix" data-canonical-src="https://saucelabs.com/browser-matrix/layui.svg"></a></p><hr><p>layui 是一款采用自身模块规范编写的情怀型前端UI框架，遵循原生HTML/CSS/JS的书写与组织形式，门槛极低，拿来即用。其外在极简，却又不失饱满的内在，体积轻盈，组件丰盈，从核心代码到API的每一处细节都经过精心雕琢，非常适合界面的快速开发。layui 首个版本发布于2016年金秋，她区别于那些基于MVVM底层的UI框架，却并非逆道而行，而是信奉返璞归真之道。准确地说，她更多是为服务端程序员量身定做，你无需涉足各种前端工具的复杂配置，只需面对浏览器本身，让一切你所需要的元素与交互，从这里信手拈来。</p><h2><a id="user-content-返璞归真" aria-hidden="true" href="https://github.com/sentsin/layui/#%E8%BF%94%E7%92%9E%E5%BD%92%E7%9C%9F"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返璞归真</h2><p>layui 定义为“经典模块化”，并非是自吹她自身有多优秀，而是有意避开当下JS社区的主流方案，试图以最简单的方式去诠释高效！<em>她的所谓经典，是在于对返璞归真的执念</em>，她以当前浏览器普通认可的方式去组织模块！我们认为，这恰是符合当下国内绝大多数程序员从旧时代过渡到未来新标准的最佳指引。所以 layui 本身也并不是完全遵循于AMD时代，准确地说，她试图建立自己的模式，所以你会看到：</p><div><pre>//layui模块的定义
+layui.define([mods], function(exports){
+  
+  //……
+  
+  exports('mod', api);
+});  
+ 
+//layui模块的使用
+layui.use(['mod1', 'mod2'], function(args){
+  var mod = layui.mod1;
+  
+  //……
+  
+});    </pre></div><p>没错，她具备AMD的影子，又并非受限于commonjs的那些条条框框，layui 认为这种轻量的组织方式，比WebPack更符合绝大多数场景。所以她坚持采用经典模块化，也正是能让人避开工具的复杂配置，回归简单，安静高效地撸一会原生态的HTML、CSS、JavaScript。</p><p>但是 layui 又并非是Requirejs那样的模块加载器，而是一款UI解决方案，她与Bootstrap最大的不同恰恰在于她糅合了自身对经典模块化的理解。</p><h2><a id="user-content-快速上手" aria-hidden="true" href="https://github.com/sentsin/layui/#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>快速上手</h2><p>获得 layui 后，将其完整地部署到你的项目目录（或静态资源服务器），你只需要引入下述两个文件：</p><pre><code>./layui/css/layui.css
+./layui/layui.js //提示：如果是采用非模块化方式（最下面有讲解），此处可换成：./layui/layui.all.js
+</code></pre><p>不用去管其它任何文件。因为他们（比如各模块）都是在最终使用的时候才会自动加载。这是一个基本的入门页面：</p><div><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+  &lt;title&gt;开始使用layui&lt;/title&gt;
+  &lt;link rel="stylesheet" href="../layui/css/layui.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;!-- 你的HTML代码 --&gt;
+ 
+&lt;script src="../layui/layui.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg('Hello World');
+});
+&lt;/script&gt; 
+&lt;/body&gt;
+&lt;/html&gt;</pre></div><p>如果你想采用非模块化方式（即所有模块一次性加载，尽管我们并不推荐你这么做），你也可以按照下面的方式使用：</p><div><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+  &lt;title&gt;非模块化方式使用layui&lt;/title&gt;
+  &lt;link rel="stylesheet" href="../layui/css/layui.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;!-- 你的HTML代码 --&gt;
+ 
+&lt;script src="../layui/layui.all.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+//由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
+;!function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg('Hello World');
+}();
+&lt;/script&gt; 
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div><h2><a id="user-content-阅读文档" aria-hidden="true" href="https://github.com/sentsin/layui/#%E9%98%85%E8%AF%BB%E6%96%87%E6%A1%A3"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="http://www.layui.com/" rel="nofollow">阅读文档</a></h2><p>从现在开始，尽情地拥抱 layui 吧！但愿她能成为你长远的开发伴侣，化作你方寸屏幕前的亿万字节！</p><h2><a id="user-content-相关" aria-hidden="true" href="https://github.com/sentsin/layui/#%E7%9B%B8%E5%85%B3"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>相关</h2><p><a href="http://www.layui.com/" rel="nofollow">官网</a>、<a href="http://www.layui.com/doc/base/changelog.html" rel="nofollow">更新日志</a>、<a href="http://fly.layui.com/" rel="nofollow">社区交流</a></p>
+2018-05-04 17:35:55,608 INFO (AdController.java:62)- >>>text:Classic modular front-end UI framework&nbsp;&nbsp;layui 是一款采用自身模块规范编写的情怀型前端UI框架，遵循原生HTML/CSS/JS的书写与组织形式，门槛极低，拿来即用。其外在极简，却又不失饱满的内在，体积轻盈，组件丰盈，从核心代码到API的每一处细节都经过精心雕琢，非常适合界面的快速开发。layui 首个版本发布于2016年金秋，她区别于那些基于MVVM底层的UI框架，却并非逆道而行，而是信奉返璞归真之道。准确地说，她更多是为服务端程序员量身定做，你无需涉足各种前端工具的复杂配置，只需面对浏览器本身，让一切你所需要的元素与交互，从这里信手拈来。返璞归真layui 定义为“经典模块化”，并非是自吹她自身有多优秀，而是有意避开当下JS社区的主流方案，试图以最简单的方式去诠释高效！她的所谓经典，是在于对返璞归真的执念，她以当前浏览器普通认可的方式去组织模块！我们认为，这恰是符合当下国内绝大多数程序员从旧时代过渡到未来新标准的最佳指引。所以 layui 本身也并不是完全遵循于AMD时代，准确地说，她试图建立自己的模式，所以你会看到：//layui模块的定义
+layui.define([mods], function(exports){
+  
+  //……
+  
+  exports('mod', api);
+});  
+ 
+//layui模块的使用
+layui.use(['mod1', 'mod2'], function(args){
+  var mod = layui.mod1;
+  
+  //……
+  
+});    没错，她具备AMD的影子，又并非受限于commonjs的那些条条框框，layui 认为这种轻量的组织方式，比WebPack更符合绝大多数场景。所以她坚持采用经典模块化，也正是能让人避开工具的复杂配置，回归简单，安静高效地撸一会原生态的HTML、CSS、JavaScript。但是 layui 又并非是Requirejs那样的模块加载器，而是一款UI解决方案，她与Bootstrap最大的不同恰恰在于她糅合了自身对经典模块化的理解。快速上手获得 layui 后，将其完整地部署到你的项目目录（或静态资源服务器），你只需要引入下述两个文件：./layui/css/layui.css
+./layui/layui.js //提示：如果是采用非模块化方式（最下面有讲解），此处可换成：./layui/layui.all.js
+不用去管其它任何文件。因为他们（比如各模块）都是在最终使用的时候才会自动加载。这是一个基本的入门页面：&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+  &lt;title&gt;开始使用layui&lt;/title&gt;
+  &lt;link rel="stylesheet" href="../layui/css/layui.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;!-- 你的HTML代码 --&gt;
+ 
+&lt;script src="../layui/layui.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg('Hello World');
+});
+&lt;/script&gt; 
+&lt;/body&gt;
+&lt;/html&gt;如果你想采用非模块化方式（即所有模块一次性加载，尽管我们并不推荐你这么做），你也可以按照下面的方式使用：&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+  &lt;title&gt;非模块化方式使用layui&lt;/title&gt;
+  &lt;link rel="stylesheet" href="../layui/css/layui.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;!-- 你的HTML代码 --&gt;
+ 
+&lt;script src="../layui/layui.all.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+//由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
+;!function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg('Hello World');
+}();
+&lt;/script&gt; 
+&lt;/body&gt;
+&lt;/html&gt;  阅读文档从现在开始，尽情地拥抱 layui 吧！但愿她能成为你长远的开发伴侣，化作你方寸屏幕前的亿万字节！相关官网、更新日志、社区交流
+2018-05-04 17:35:55,608 INFO (AdController.java:65)- >>>startTime:2018-05-04
+2018-05-04 17:35:55,608 INFO (AdController.java:66)- >>>endTime:2018-05-31
+2018-05-04 17:35:55,614 INFO (AdServiceImpl.java:200)- getAdTypeCode>>>adType为招聘
+2018-05-04 17:35:55,618 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into ad (ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-05-04 17:35:55,622 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: null, 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@67c4b5af(StringReader), java.io.StringReader@3531f20b(StringReader), null, null, 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 0(Integer), 0(Integer), 0(Integer), null
+2018-05-04 17:35:55,725 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:35:55,725 INFO (UserServiceImpl.java:127)- money>>>135
+2018-05-04 17:35:55,726 INFO (UserServiceImpl.java:128)- userId>>>2
+2018-05-04 17:35:55,726 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:35:55,727 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:35:55,728 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:35:55,729 INFO (UserServiceImpl.java:134)- 用户张弛消费了135，余额是1864
+2018-05-04 17:35:55,748 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update user SET user_name = ?, user_password = ?, user_type = ?, user_type_code = ?, user_verify_status = ?, user_regist_time = ?, user_phone = ?, user_email = ?, user_sex = ?, user_city = ?, user_signature = ?, user_money = ?, user_vip_grade = ?, user_grade = ?, user_preference = ? where user_id = ? 
+2018-05-04 17:35:55,748 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 张弛(String), 202cb962ac59075b964b07152d234b70(String), 政府(String), GOV(String), PENDING(String), 2018-05-01 17:41:43.0(Timestamp), 15161182029(String), zc1234567@vip.qq.com(String), 男(String), 南京(String), 34324(String), 1864(Integer), 5(String), 3(Integer), a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;(String), 2(Integer)
+2018-05-04 17:35:55,795 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:36:00,828 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:36:00,829 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:36:00,829 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:36:00,831 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:36:00,833 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:00,833 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:36:00,835 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:00,836 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:00,838 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:36:00,842 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 6
+2018-05-04 17:36:03,035 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price, a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number, a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from ad a JOIN user u ON a.ad_user_id = u.user_id where ad_id = ? 
+2018-05-04 17:36:03,036 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:03,036 INFO (AdController.java:200)- >>>>用户是否收藏广告
+2018-05-04 17:36:03,038 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select c.comment_id, c.comment_user_id, c.comment_ad_id, c.comment_content, c.comment_time, c.comment_like_number, u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from comment c JOIN user u ON c.comment_user_id = u.user_id where comment_ad_id = ? 
+2018-05-04 17:36:03,038 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:03,041 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:03,041 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select sys_id, user_id, ad_id, collect_time from user_ad where ad_id = ? AND user_id = ? 
+2018-05-04 17:36:03,042 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer), 2(Integer)
+2018-05-04 17:36:03,044 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:03,046 INFO (AdController.java:211)- >>>>用户是否收藏该广告：false
+2018-05-04 17:36:03,051 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update ad SET ad_user_id = ?, ad_type = ?, ad_type_code = ?, ad_title = ?, ad_html = ?, ad_text = ?, ad_add_time = ?, ad_last_update_time = ?, ad_start_time = ?, ad_end_time = ?, ad_click_number = ?, ad_collect_number = ?, ad_comment_number = ? where ad_id = ? 
+2018-05-04 17:36:03,055 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@7875e05a(StringReader), java.io.StringReader@4305aa26(StringReader), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 1(Integer), 0(Integer), 0(Integer), 11(Integer)
+2018-05-04 17:36:03,109 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:36:03,127 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:07,525 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:36:07,526 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:36:07,528 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:36:07,529 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:07,531 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:07,532 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:36:18,358 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price, a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number, a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from ad a JOIN user u ON a.ad_user_id = u.user_id where ad_id = ? 
+2018-05-04 17:36:18,358 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select c.comment_id, c.comment_user_id, c.comment_ad_id, c.comment_content, c.comment_time, c.comment_like_number, u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from comment c JOIN user u ON c.comment_user_id = u.user_id where comment_ad_id = ? 
+2018-05-04 17:36:18,359 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:18,359 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:18,360 INFO (AdController.java:200)- >>>>用户是否收藏广告
+2018-05-04 17:36:18,362 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:18,362 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:18,362 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select sys_id, user_id, ad_id, collect_time from user_ad where ad_id = ? AND user_id = ? 
+2018-05-04 17:36:18,363 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer), 2(Integer)
+2018-05-04 17:36:18,369 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update ad SET ad_user_id = ?, ad_type = ?, ad_type_code = ?, ad_title = ?, ad_html = ?, ad_text = ?, ad_add_time = ?, ad_last_update_time = ?, ad_start_time = ?, ad_end_time = ?, ad_click_number = ?, ad_collect_number = ?, ad_comment_number = ? where ad_id = ? 
+2018-05-04 17:36:18,369 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:18,370 INFO (AdController.java:211)- >>>>用户是否收藏该广告：false
+2018-05-04 17:36:18,372 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@76861bbd(StringReader), java.io.StringReader@3736949d(StringReader), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 2(Integer), 0(Integer), 0(Integer), 11(Integer)
+2018-05-04 17:36:18,453 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:36:19,801 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:36:19,802 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:36:19,806 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:36:19,808 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:19,812 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:19,814 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:36:34,383 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price, a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number, a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from ad a JOIN user u ON a.ad_user_id = u.user_id where ad_id = ? 
+2018-05-04 17:36:34,384 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:34,385 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select c.comment_id, c.comment_user_id, c.comment_ad_id, c.comment_content, c.comment_time, c.comment_like_number, u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from comment c JOIN user u ON c.comment_user_id = u.user_id where comment_ad_id = ? 
+2018-05-04 17:36:34,386 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:34,387 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:34,387 INFO (AdController.java:200)- >>>>用户是否收藏广告
+2018-05-04 17:36:34,387 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:34,388 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select sys_id, user_id, ad_id, collect_time from user_ad where ad_id = ? AND user_id = ? 
+2018-05-04 17:36:34,388 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update ad SET ad_user_id = ?, ad_type = ?, ad_type_code = ?, ad_title = ?, ad_html = ?, ad_text = ?, ad_add_time = ?, ad_last_update_time = ?, ad_start_time = ?, ad_end_time = ?, ad_click_number = ?, ad_collect_number = ?, ad_comment_number = ? where ad_id = ? 
+2018-05-04 17:36:34,389 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer), 2(Integer)
+2018-05-04 17:36:34,390 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:34,391 INFO (AdController.java:211)- >>>>用户是否收藏该广告：false
+2018-05-04 17:36:34,391 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@b2494d7(StringReader), java.io.StringReader@445d0f09(StringReader), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 3(Integer), 0(Integer), 0(Integer), 11(Integer)
+2018-05-04 17:36:34,462 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:36:36,045 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:36:36,046 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:36:36,047 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:36:36,048 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:36,050 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:36,051 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:36:46,845 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:36:46,846 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:36:46,847 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:36:46,847 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:36:46,848 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:46,851 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:36:46,852 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:46,853 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:46,853 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:36:46,862 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 6
+2018-05-04 17:36:48,824 INFO (AdController.java:200)- >>>>用户是否收藏广告
+2018-05-04 17:36:48,824 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select c.comment_id, c.comment_user_id, c.comment_ad_id, c.comment_content, c.comment_time, c.comment_like_number, u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from comment c JOIN user u ON c.comment_user_id = u.user_id where comment_ad_id = ? 
+2018-05-04 17:36:48,824 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price, a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number, a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from ad a JOIN user u ON a.ad_user_id = u.user_id where ad_id = ? 
+2018-05-04 17:36:48,825 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select sys_id, user_id, ad_id, collect_time from user_ad where ad_id = ? AND user_id = ? 
+2018-05-04 17:36:48,825 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:48,825 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:48,825 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer), 2(Integer)
+2018-05-04 17:36:48,826 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:48,827 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:48,827 INFO (AdController.java:211)- >>>>用户是否收藏该广告：false
+2018-05-04 17:36:48,833 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:48,835 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update ad SET ad_user_id = ?, ad_type = ?, ad_type_code = ?, ad_title = ?, ad_html = ?, ad_text = ?, ad_add_time = ?, ad_last_update_time = ?, ad_start_time = ?, ad_end_time = ?, ad_click_number = ?, ad_collect_number = ?, ad_comment_number = ? where ad_id = ? 
+2018-05-04 17:36:48,838 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@cc1dddd(StringReader), java.io.StringReader@4ffdd617(StringReader), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 4(Integer), 0(Integer), 0(Integer), 11(Integer)
+2018-05-04 17:36:48,907 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:36:50,470 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:36:50,472 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:36:50,477 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:36:50,478 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:50,481 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:50,482 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:36:57,710 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price, a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number, a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from ad a JOIN user u ON a.ad_user_id = u.user_id where ad_id = ? 
+2018-05-04 17:36:57,711 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:57,711 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select c.comment_id, c.comment_user_id, c.comment_ad_id, c.comment_content, c.comment_time, c.comment_like_number, u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from comment c JOIN user u ON c.comment_user_id = u.user_id where comment_ad_id = ? 
+2018-05-04 17:36:57,712 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:36:57,712 INFO (AdController.java:200)- >>>>用户是否收藏广告
+2018-05-04 17:36:57,713 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:57,713 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select sys_id, user_id, ad_id, collect_time from user_ad where ad_id = ? AND user_id = ? 
+2018-05-04 17:36:57,713 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:57,714 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer), 2(Integer)
+2018-05-04 17:36:57,715 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update ad SET ad_user_id = ?, ad_type = ?, ad_type_code = ?, ad_title = ?, ad_html = ?, ad_text = ?, ad_add_time = ?, ad_last_update_time = ?, ad_start_time = ?, ad_end_time = ?, ad_click_number = ?, ad_collect_number = ?, ad_comment_number = ? where ad_id = ? 
+2018-05-04 17:36:57,719 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:36:57,720 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@154be47c(StringReader), java.io.StringReader@4fbb2e77(StringReader), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 5(Integer), 0(Integer), 0(Integer), 11(Integer)
+2018-05-04 17:36:57,720 INFO (AdController.java:211)- >>>>用户是否收藏该广告：false
+2018-05-04 17:36:57,803 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:36:59,804 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:36:59,805 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:36:59,806 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:36:59,807 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:36:59,809 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:36:59,810 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:37:14,142 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into comment ( comment_user_id, comment_ad_id, comment_content, comment_time, comment_like_number ) values ( ?, ?, ?, ?, ? ) 
+2018-05-04 17:37:14,143 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 11(Integer), <img src="http://localhost:3000/res/layui/images/face/1.gif" alt="[嘻嘻]"><img src="http://localhost:3000/res/layui/images/face/54.gif" alt="[good]">(String), 2018-05-04 17:37:14.0(Timestamp), 0(Integer)
+2018-05-04 17:37:14,218 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:37:14,219 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price, a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number, a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from ad a JOIN user u ON a.ad_user_id = u.user_id where ad_id = ? 
+2018-05-04 17:37:14,220 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:37:14,221 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:37:14,223 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update ad SET ad_user_id = ?, ad_type = ?, ad_type_code = ?, ad_title = ?, ad_html = ?, ad_text = ?, ad_add_time = ?, ad_last_update_time = ?, ad_start_time = ?, ad_end_time = ?, ad_click_number = ?, ad_collect_number = ?, ad_comment_number = ? where ad_id = ? 
+2018-05-04 17:37:14,225 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@13d66b0a(StringReader), java.io.StringReader@7cf22a55(StringReader), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 5(Integer), 0(Integer), 1(Integer), 11(Integer)
+2018-05-04 17:37:14,275 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:37:16,671 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select a.ad_id, a.ad_user_id, a.ad_type, a.ad_type_code, a.ad_title, a.ad_html, a.ad_text, a.ad_pic, a.ad_price, a.ad_add_time, a.ad_last_update_time, a.ad_start_time, a.ad_end_time, a.ad_click_number, a.ad_collect_number, a.ad_comment_number, a.ad_last_comment_time,u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from ad a JOIN user u ON a.ad_user_id = u.user_id where ad_id = ? 
+2018-05-04 17:37:16,672 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:37:16,672 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select c.comment_id, c.comment_user_id, c.comment_ad_id, c.comment_content, c.comment_time, c.comment_like_number, u.user_id, u.user_name, u.user_password, u.user_type, u.user_type_code, u.user_verify_status, u.user_regist_time, u.user_avatar, u.user_phone, u.user_email, u.user_sex, u.user_city, u.user_signature, u.user_qq, u.user_wechat, u.user_weibo, u.user_money, u.user_vip_grade, u.user_grade, u.user_preference from comment c JOIN user u ON c.comment_user_id = u.user_id where comment_ad_id = ? 
+2018-05-04 17:37:16,673 INFO (AdController.java:200)- >>>>用户是否收藏广告
+2018-05-04 17:37:16,673 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer)
+2018-05-04 17:37:16,674 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select sys_id, user_id, ad_id, collect_time from user_ad where ad_id = ? AND user_id = ? 
+2018-05-04 17:37:16,675 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11(Integer), 2(Integer)
+2018-05-04 17:37:16,676 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-05-04 17:37:16,676 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:37:16,676 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:37:16,677 INFO (AdController.java:211)- >>>>用户是否收藏该广告：false
+2018-05-04 17:37:16,678 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: update ad SET ad_user_id = ?, ad_type = ?, ad_type_code = ?, ad_title = ?, ad_html = ?, ad_text = ?, ad_add_time = ?, ad_last_update_time = ?, ad_start_time = ?, ad_end_time = ?, ad_click_number = ?, ad_collect_number = ?, ad_comment_number = ? where ad_id = ? 
+2018-05-04 17:37:16,680 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer), 招聘(String), b(String), layui(String), java.io.StringReader@782e71de(StringReader), java.io.StringReader@13d6659b(StringReader), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 17:35:55.0(Timestamp), 2018-05-04 00:00:00.0(Timestamp), 2018-05-31 00:00:00.0(Timestamp), 6(Integer), 0(Integer), 1(Integer), 11(Integer)
+2018-05-04 17:37:16,719 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-05-04 17:37:20,956 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:37:20,957 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:37:20,961 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:37:20,965 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:37:20,968 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:37:20,969 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:40:12,148 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:40:12,149 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:40:12,151 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:40:12,152 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:40:12,153 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:40:12,154 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}
+2018-05-04 17:41:00,492 INFO (UserController.java:76)- User{userId=null, userName='轻微的所', userPassword='123', userType='null', userTypeCode='null', userVerifyStatus='null', userRegistTime=null, userAvatar='null', userPhone='null', userEmail='null', userSex='null', userCity='null', userSignature='null', userQq=null, userWechat='null', userWeibo='null', userMoney=null, userVipGrade='null', userGrade=null, userPreference='null'}
+2018-05-04 17:41:00,493 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? 
+2018-05-04 17:41:00,494 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String)
+2018-05-04 17:41:00,497 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:00,499 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_name = ? AND user_password = ? 
+2018-05-04 17:41:00,500 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 轻微的所(String), 202cb962ac59075b964b07152d234b70(String)
+2018-05-04 17:41:00,502 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:00,503 INFO (UserServiceImpl.java:81)- 验证成功！
+2018-05-04 17:41:00,505 INFO (UserController.java:81)- User{userId=1, userName='轻微的所', userPassword='202cb962ac59075b964b07152d234b70', userType='普通用户', userTypeCode='USER', userVerifyStatus='HAS_AUTHENTICATED', userRegistTime=Thu May 03 15:11:03 CST 2018, userAvatar='null', userPhone='123', userEmail='zc123@qq.com', userSex='女', userCity='华盛顿', userSignature='中国过去五六十年做出的成绩完全是一个经济奇迹。是我完全没有意料到的。我只知道中国已经找到了自己的秘籍，正如美国几个世纪以前所做的一样。', userQq=271343981, userWechat='null', userWeibo='null', userMoney=8112, userVipGrade='1', userGrade=1, userPreference='b;b;a;'}
+2018-05-04 17:41:10,436 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:41:10,437 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:41:10,442 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:41:10,443 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:41:10,445 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:10,449 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:41:10,450 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:10,452 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:10,453 INFO (UserController.java:105)- User{userId=1, userName='轻微的所', userPassword='202cb962ac59075b964b07152d234b70', userType='普通用户', userTypeCode='USER', userVerifyStatus='HAS_AUTHENTICATED', userRegistTime=Thu May 03 15:11:03 CST 2018, userAvatar='null', userPhone='123', userEmail='zc123@qq.com', userSex='女', userCity='华盛顿', userSignature='中国过去五六十年做出的成绩完全是一个经济奇迹。是我完全没有意料到的。我只知道中国已经找到了自己的秘籍，正如美国几个世纪以前所做的一样。', userQq=271343981, userWechat='null', userWeibo='null', userMoney=8112, userVipGrade='1', userGrade=1, userPreference='b;b;a;'}
+2018-05-04 17:41:10,455 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:25,030 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:41:25,031 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:41:25,034 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:41:25,036 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:25,040 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:25,041 INFO (UserController.java:105)- User{userId=1, userName='轻微的所', userPassword='202cb962ac59075b964b07152d234b70', userType='普通用户', userTypeCode='USER', userVerifyStatus='HAS_AUTHENTICATED', userRegistTime=Thu May 03 15:11:03 CST 2018, userAvatar='null', userPhone='123', userEmail='zc123@qq.com', userSex='女', userCity='华盛顿', userSignature='中国过去五六十年做出的成绩完全是一个经济奇迹。是我完全没有意料到的。我只知道中国已经找到了自己的秘籍，正如美国几个世纪以前所做的一样。', userQq=271343981, userWechat='null', userWeibo='null', userMoney=8112, userVipGrade='1', userGrade=1, userPreference='b;b;a;'}
+2018-05-04 17:41:27,992 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:41:27,993 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:41:27,994 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:41:27,995 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:27,996 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:27,997 INFO (UserController.java:105)- User{userId=1, userName='轻微的所', userPassword='202cb962ac59075b964b07152d234b70', userType='普通用户', userTypeCode='USER', userVerifyStatus='HAS_AUTHENTICATED', userRegistTime=Thu May 03 15:11:03 CST 2018, userAvatar='null', userPhone='123', userEmail='zc123@qq.com', userSex='女', userCity='华盛顿', userSignature='中国过去五六十年做出的成绩完全是一个经济奇迹。是我完全没有意料到的。我只知道中国已经找到了自己的秘籍，正如美国几个世纪以前所做的一样。', userQq=271343981, userWechat='null', userWeibo='null', userMoney=8112, userVipGrade='1', userGrade=1, userPreference='b;b;a;'}
+2018-05-04 17:41:28,675 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:41:28,676 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:41:28,676 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:28,678 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:32,189 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:41:32,190 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:41:32,191 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:32,193 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:33,128 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:41:33,129 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:41:33,130 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:41:33,130 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:33,132 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:33,132 INFO (UserController.java:105)- User{userId=1, userName='轻微的所', userPassword='202cb962ac59075b964b07152d234b70', userType='普通用户', userTypeCode='USER', userVerifyStatus='HAS_AUTHENTICATED', userRegistTime=Thu May 03 15:11:03 CST 2018, userAvatar='null', userPhone='123', userEmail='zc123@qq.com', userSex='女', userCity='华盛顿', userSignature='中国过去五六十年做出的成绩完全是一个经济奇迹。是我完全没有意料到的。我只知道中国已经找到了自己的秘籍，正如美国几个世纪以前所做的一样。', userQq=271343981, userWechat='null', userWeibo='null', userMoney=8112, userVipGrade='1', userGrade=1, userPreference='b;b;a;'}
+2018-05-04 17:41:38,377 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:41:38,378 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:41:38,379 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:41:38,380 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:38,381 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:41:38,382 INFO (UserController.java:105)- User{userId=1, userName='轻微的所', userPassword='202cb962ac59075b964b07152d234b70', userType='普通用户', userTypeCode='USER', userVerifyStatus='HAS_AUTHENTICATED', userRegistTime=Thu May 03 15:11:03 CST 2018, userAvatar='null', userPhone='123', userEmail='zc123@qq.com', userSex='女', userCity='华盛顿', userSignature='中国过去五六十年做出的成绩完全是一个经济奇迹。是我完全没有意料到的。我只知道中国已经找到了自己的秘籍，正如美国几个世纪以前所做的一样。', userQq=271343981, userWechat='null', userWeibo='null', userMoney=8112, userVipGrade='1', userGrade=1, userPreference='b;b;a;'}
+2018-05-04 17:41:38,973 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:41:38,974 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:41:38,974 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 1(Integer)
+2018-05-04 17:41:38,976 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:42:33,500 INFO (AdController.java:160)- >>>>>>>进入finduserad
+2018-05-04 17:42:33,501 INFO (UserController.java:98)- 进入findUser
+2018-05-04 17:42:33,501 INFO (UserController.java:99)- request>>>http://localhost:3000
+2018-05-04 17:42:33,502 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select ad_id, ad_user_id, ad_type, ad_type_code, ad_title, ad_html, ad_text, ad_pic, ad_price, ad_add_time, ad_last_update_time, ad_start_time, ad_end_time, ad_click_number, ad_collect_number, ad_comment_number, ad_last_comment_time from ad where ad_user_id = ? 
+2018-05-04 17:42:33,503 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:42:33,505 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, user_name, user_password, user_type, user_type_code, user_verify_status, user_regist_time, user_avatar, user_phone, user_email, user_sex, user_city, user_signature, user_qq, user_wechat, user_weibo, user_money, user_vip_grade, user_grade, user_preference from user where user_id = ? 
+2018-05-04 17:42:33,506 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2(Integer)
+2018-05-04 17:42:33,508 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 6
+2018-05-04 17:42:33,508 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-04 17:42:33,509 INFO (UserController.java:105)- User{userId=2, userName='张弛', userPassword='202cb962ac59075b964b07152d234b70', userType='政府', userTypeCode='GOV', userVerifyStatus='PENDING', userRegistTime=Tue May 01 17:41:43 CST 2018, userAvatar='null', userPhone='15161182029', userEmail='zc1234567@vip.qq.com', userSex='男', userCity='南京', userSignature='34324', userQq=null, userWechat='null', userWeibo='null', userMoney=1864, userVipGrade='5', userGrade=3, userPreference='a;a;a;a;a;b;b;a;b;b;b;b;a;a;b;'}

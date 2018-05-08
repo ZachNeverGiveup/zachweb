@@ -1,6 +1,8 @@
 package com.jsut.zachweb.controller;
 
 import com.jsut.zachweb.dto.AdCollectDTO;
+import com.jsut.zachweb.dto.AdminAdResponseDTO;
+import com.jsut.zachweb.dto.IndexResponseDTO;
 import com.jsut.zachweb.model.Ad;
 import com.jsut.zachweb.model.User;
 import com.jsut.zachweb.service.AdService;
@@ -92,7 +94,8 @@ public class AdController {
     public JsonResult delAd(Integer id, HttpServletRequest request, HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        adService.deleteByPrimaryKey(id);
+        User user = (User) request.getSession().getAttribute("user");
+        adService.deleteByPrimaryKey(id,user);
         return new JsonResult();
     }
 
@@ -280,6 +283,78 @@ public class AdController {
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
         response.setHeader("Access-Control-Allow-Credentials", "true");
         List<Ad> adList = adService.selectAdsByKeyWord(keyword);
-        return null;
+        List<Ad> adClickListByPage = adService.findIndexAdListByPage(null, "a.ad_click_number", "1", "12");
+        IndexResponseDTO indexResponseDTO = new IndexResponseDTO();
+        indexResponseDTO.setIndexAdList(adList);
+        indexResponseDTO.setIndexAdListClick(adClickListByPage);
+        return new JsonResult(indexResponseDTO);
     }
+
+    /**
+     * 管理员查找所有用户
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/admin/findAds")
+    @ResponseBody
+    public AdminAdResponseDTO adminFindAd(String page, String limit, HttpServletRequest request, HttpServletResponse response) {
+        log.info(">>>>>>>>管理员查找所有广告>>>>>>>>>>>>>>{},{}", page, limit);
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        AdminAdResponseDTO adminAdResponseDTO = new AdminAdResponseDTO();
+        adminAdResponseDTO.setCode(0);
+        adminAdResponseDTO.setMsg("success find all ads");
+        List<Ad> adList = adService.findAllAds();
+        adminAdResponseDTO.setCount(adList.size());
+        List<Ad> adListByPage = adService.findAdsByPage(page,limit);
+        adminAdResponseDTO.setData(adListByPage);
+        return adminAdResponseDTO;
+    }
+
+    /**
+     * 首页信息
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/indexAd")
+    @ResponseBody
+    public JsonResult indexAd(HttpServletRequest request, HttpServletResponse response){
+        log.info(">>>>>>>>进入首页>>>>>>>>>>>>>>");
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        User user = (User)request.getSession().getAttribute("user");
+        List<Ad> adLikeList = adService.findUserLikeAdList(user);
+        List<Ad> indexAdListByPage = adService.findIndexAdListByPage(null, null, "1", "12");
+        List<Ad> indexAdCommentListByPage = adService.findIndexAdListByPage(null, "a.ad_comment_number", "1", "12");
+        List<Ad> indexAdClickListByPage = adService.findIndexAdListByPage(null, "a.ad_click_number", "1", "12");
+        IndexResponseDTO indexResponseDTO = new IndexResponseDTO();
+        indexResponseDTO.setAdLikeList(adLikeList);
+        indexResponseDTO.setIndexAdList(indexAdListByPage);
+        indexResponseDTO.setIndexAdListComment(indexAdCommentListByPage);
+        indexResponseDTO.setIndexAdListClick(indexAdClickListByPage);
+        return new JsonResult(indexResponseDTO);
+    }
+
+    /**
+     * jie分页分每页条数分类别分排序方式查看信息
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/selectAdList")
+    @ResponseBody
+    public JsonResult selectAdList(String adType,String sortType,String page, String limit, HttpServletRequest request, HttpServletResponse response){
+        log.info(">>>>>>>>进入首页>>>>>>>>>>>>>>");
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin").toString());
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        List<Ad> AdListByPage = adService.findIndexAdListByPage(adType, sortType, page, limit);
+        List<Ad> adClickListByPage = adService.findIndexAdListByPage(adType, "a.ad_click_number", "1", "12");
+        IndexResponseDTO indexResponseDTO = new IndexResponseDTO();
+        indexResponseDTO.setIndexAdList(AdListByPage);
+        indexResponseDTO.setIndexAdListClick(adClickListByPage);
+        return new JsonResult(indexResponseDTO);
+    }
+
 }
